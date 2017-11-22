@@ -1,9 +1,4 @@
-<?php $this->load->view("Common/headerNav");?>
-<!-- end navbar -->
 <link rel="stylesheet" href="/static/css/compiled/index.css" type="text/css" media="screen" />
-<!-- sidebar -->
-<?php $this->load->view("Common/sidebarNav");?>
-<!-- end sidebar -->
 <!-- main container -->
 <div class="content">
 

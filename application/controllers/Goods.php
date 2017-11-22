@@ -3,10 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Goods extends CI_Controller {
 
-	public  function __construct(){
-
+    public  function __construct(){
         parent::__construct();
-       // $this->load->database();
+        $data=array();
+        $data['controller'] =  $this->router->fetch_class();
+        $this->load->view('Common/headerNav');
+        $this->load->view('Common/sidebarNav',$data);
+        // $this->load->database();
     }
 
 

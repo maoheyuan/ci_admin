@@ -20,6 +20,10 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="/static/css/compiled/form-showcase.css" type="text/css" />
 <body>
 
 <!-- navbar -->

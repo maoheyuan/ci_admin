@@ -1,9 +1,3 @@
-<?php $this->load->view("Common/headerNav");?>
-<!-- end navbar -->
-<link rel="stylesheet" href="/static/css/compiled/form-showcase.css" type="text/css" />
-<!-- sidebar -->
-<?php $this->load->view("Common/sidebarNav");?>
-<!-- end sidebar -->
 <!-- main container -->
 <div class="content">
 
