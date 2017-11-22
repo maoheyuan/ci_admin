@@ -1,36 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Member extends CI_Controller {
+class Page {
 
-    public  function __construct(){
-        parent::__construct();
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
-        // $this->load->database();
-    }
-
-
-
-
-    public function index()
-	{
-        
-        $this->load->library('page');
-        $data["page"]=$this->page->getPage(200,10);
-        $this->load->view('member/index',$data);
-		//$this->load->view('member/index');
-	}
-
-
-
-    private  function  getPage(){
-        $this->load->library('pagination');
+    public function getPage($total_rows,$per_page)
+    {
+        $ci =& get_instance();
+        $ci->load->library('pagination');
         $config['base_url'] = '/Member/index/page/';
-        $config['total_rows'] = 200;
-        $config['per_page'] = 10;
+        $config['total_rows'] = $total_rows;
+        $config['per_page'] = $per_page;
         $config['reuse_query_string'] = true;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -48,14 +27,8 @@ class Member extends CI_Controller {
         $config['num_tag_close'] = '</li>';
         $config['last_link'] = '末页';
         $config['first_link'] = '首页';
-        $this->pagination->initialize($config);
-        $page= $this->pagination->create_links();
+        $ci->pagination->initialize($config);
+        $page= $ci->pagination->create_links();
         return $page;
-
     }
-
-
-
-
-
 }
