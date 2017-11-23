@@ -36,7 +36,6 @@ class Member extends CI_Controller {
 
     public  function add(){
 
-
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
         $this->form_validation->set_rules('password' ,'', 'required',array('required' => '密码不能为空'));

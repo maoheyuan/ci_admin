@@ -25,8 +25,12 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="用户名/手机号"/>
-                        <a class="btn-flat success new-product" href="/Member/add">+新增</a>
+                        <form action="/Member/index" method="get">
+                            <input type="text" class="search" name="keyword" placeholder="用户名/手机号" id="keyword"/>
+                            <a class="btn-flat success new-product" href="/Member/add">+新增</a>
+                        </form>
+
+
                     </div>
                 </div>
 
@@ -204,15 +208,6 @@
             <!-- start pagination -->
             <div class="pagination pull-right">
                 <?=$page?>
-          <!--      <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>-->
             </div>
             <!-- end pagination -->
         </div>
