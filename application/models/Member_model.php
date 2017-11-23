@@ -5,6 +5,7 @@ class Member_model extends CI_Model {
     public function __construct(){
         parent::__construct();
         $this->load->database();
+
     }
 
     public function get_members_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
@@ -18,7 +19,34 @@ class Member_model extends CI_Model {
         $this->db->order_by('id', 'DESC');
         $query =$this->db->get('members');
         //echo $this->db->last_query();
-        return $query->result_array();
+        $list=$query->result_array();
+        foreach($list as $key=>$value){
+
+            $list[$key]=$this->format_data($value);
+
+        }
+        return $list;
+    }
+
+
+    protected  function format_data($data){
+
+        if($data["addtime"]){
+            $data["addtime"]=date("Y-m-d H:i:s",$data["addtime"]);
+        }
+        if($data["edittime"]){
+            $data["edittime"]=date("Y-m-d H:i:s",$data["edittime"]);
+        }
+
+        if($data["status"]==1){
+            $data["status"]="启用";
+        }
+        if($data["status"]==2){
+            $data["status"]="禁用";
+        }
+
+        return $data;
+
     }
 
 
@@ -60,6 +88,7 @@ class Member_model extends CI_Model {
         $data['password']   = $post['password'];
         $data['account']  = $post['account'];
         $data['address']   = $post['address'];
+        $data['status']   = $post['status'];
         $data['edittime']  = time();
         return $this->db->where('id', $id)->update('members', $data);
     }

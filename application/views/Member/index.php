@@ -68,7 +68,7 @@
                                     <div class="img">
                                         <img src="/static/img/table-img.png" />
                                     </div>
-                                    <a href="#" class="name"><?=$item['username']?> </a>
+                                    <?=$item['username']?>
                                 </td>
                                 <td class="description">
                                     <?=$item['mobile']?>
