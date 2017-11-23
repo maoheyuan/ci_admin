@@ -7,7 +7,7 @@ class Page {
     {
         $ci =& get_instance();
         $ci->load->library('pagination');
-        $config['base_url'] = '/Member/index/page/';
+        $config['base_url'] = '/Member/index';
         $config['total_rows'] = $total_rows;
         $config['per_page'] = $per_page;
         $config['reuse_query_string'] = true;
@@ -27,6 +27,7 @@ class Page {
         $config['num_tag_close'] = '</li>';
         $config['last_link'] = '末页';
         $config['first_link'] = '首页';
+        $config['page_query_string']=true;
         $ci->pagination->initialize($config);
         $page= $ci->pagination->create_links();
         return $page;

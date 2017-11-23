@@ -344,6 +344,8 @@ class CI_Form_validation {
 			$suffix = $this->_error_suffix;
 		}
 
+
+
 		return $prefix.$this->_field_data[$field]['error'].$suffix;
 	}
 
@@ -358,6 +360,8 @@ class CI_Form_validation {
 	 */
 	public function error_array()
 	{
+
+
 		return $this->_error_array;
 	}
 
@@ -484,7 +488,8 @@ class CI_Form_validation {
 		{
 			$this->_safe_form_data = TRUE;
 		}
-
+/*
+        var_dump($this->_field_data);*/
 		// Now we need to re-set the POST data with the new, processed data
 		empty($this->validation_data) && $this->_reset_post_array();
 
@@ -886,6 +891,7 @@ class CI_Form_validation {
 	 */
 	protected function _build_error_msg($line, $field = '', $param = '')
 	{
+
 		// Check for %s in the string for legacy support.
 		if (strpos($line, '%s') !== FALSE)
 		{

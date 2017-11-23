@@ -5,6 +5,7 @@ class Member extends CI_Controller {
 
     public  function __construct(){
         parent::__construct();
+        $this->load->model('member_model');
         $data=array();
         $data['controller'] =  $this->router->fetch_class();
         $this->load->view('Common/headerNav');
@@ -17,40 +18,44 @@ class Member extends CI_Controller {
 
     public function index()
 	{
-        
+        $keyword = $this->input->get('keyword');
+        $page = $this->input->get('per_page');
+        $members=$this->member_model->get_members_by_keyword($keyword,"*",$page);
+        $count=$this->member_model->count($keyword);
         $this->load->library('page');
-        $data["page"]=$this->page->getPage(200,10);
+        $data["page"]=$this->page->getPage($count,10);
+        $data["members"]=$members;
         $this->load->view('member/index',$data);
-		//$this->load->view('member/index');
+
 	}
 
 
+    public  function add(){
 
-    private  function  getPage(){
-        $this->load->library('pagination');
-        $config['base_url'] = '/Member/index/page/';
-        $config['total_rows'] = 200;
-        $config['per_page'] = 10;
-        $config['reuse_query_string'] = true;
-        $config['full_tag_open'] = '<ul>';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a class="active" href="#">';
-        $config['cur_tag_close'] = '</li></a>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['last_link'] = '末页';
-        $config['first_link'] = '首页';
-        $this->pagination->initialize($config);
-        $page= $this->pagination->create_links();
-        return $page;
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('username', 'Username', 'required',array('required' => '用户名不能为空'));
+        $this->form_validation->set_rules('password', 'Password', 'required',array('required' => '密码不能为空'));
+        $this->form_validation->set_rules('rpassword', 'Password Confirmation', 'required|matches[password]',array('required' => '确认密码不能为空',"matches"=>"二次输入的密码不一致"));
+        $this->form_validation->set_rules('mobile', 'mobile', 'required',array('required' => '手机号不能为空'));
+        $this->form_validation->set_rules('status', 'Status', 'required',array('required' => '状态不能为空'));
+        $this->form_validation->set_rules('account', 'account', 'required',array('required' => '账号不能为空'));
+        $this->form_validation->set_rules('address', 'address', 'required',array('required' => '地址不能为空'));
+        if ($this->form_validation->run() == FALSE)
+        {
+            //$this->load->helper('url');
+            //redirect('/Member/add');
+
+
+            $this->load->view("member/add");
+        }
+        else
+        {
+
+            $this->load->helper('url');
+            redirect('/Member/add');
+        }
 
     }
 

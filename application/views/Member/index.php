@@ -26,7 +26,7 @@
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
                         <input type="text" class="search"  placeholder="用户名/手机号"/>
-                        <a class="btn-flat success new-product">+新增</a>
+                        <a class="btn-flat success new-product" href="/Member/add">+新增</a>
                     </div>
                 </div>
 
@@ -55,33 +55,39 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                               13978021294
-                            </td>
-                            <td class="description">
-                              1000
-                            </td>
-                            <td class="description">
-                                广西阳光产
-                            </td>
-                            <td>
-                                <span class="label label-success">Active</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
+
+                        <?php foreach ($members as $item): ?>
+                            <!-- start row -->
+                            <tr class="first">
+                                <td>
+                                    <input type="checkbox" />
+                                    <div class="img">
+                                        <img src="/static/img/table-img.png" />
+                                    </div>
+                                    <a href="#" class="name"><?=$item['username']?> </a>
+                                </td>
+                                <td class="description">
+                                    <?=$item['mobile']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['account']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['address']?>
+                                </td>
+                                <td>
+                                    <span class="label label-success"> <?=$item['status']?></span>
+                                    <ul class="actions">
+                                        <li><a href="#">修改</a></li>
+                                        <li class="last"><a href="#">删除</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+
+                        <?php endforeach; ?>
+
+
                         <tr>
                             <td>
                                 <input type="checkbox" />
