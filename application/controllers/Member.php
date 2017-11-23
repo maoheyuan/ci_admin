@@ -6,11 +6,11 @@ class Member extends CI_Controller {
     public  function __construct(){
         parent::__construct();
         $this->load->model('member_model');
+        $this->load->helper('url');
         $data=array();
         $data['controller'] =  $this->router->fetch_class();
         $this->load->view('Common/headerNav');
         $this->load->view('Common/sidebarNav',$data);
-        // $this->load->database();
     }
 
 
@@ -25,12 +25,17 @@ class Member extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10);
         $data["members"]=$members;
+
+        $data["get"]["per_page"]=$page;
+        $data["get"]["keyword"]=$keyword;
+
         $this->load->view('member/index',$data);
 
 	}
 
 
     public  function add(){
+
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
@@ -47,13 +52,13 @@ class Member extends CI_Controller {
         else {
             $post=$this->input->post();
             $this->member_model->insert($post);
-            $this->load->helper('url');
             redirect('/Member/index');
         }
     }
 
 
     public  function edit(){
+
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
         $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
@@ -74,12 +79,17 @@ class Member extends CI_Controller {
             $this->load->view("member/edit",$data);
         }
         else {
+
             $this->member_model->update($id,$post);
-            $this->load->helper('url');
-            redirect('/Member/index');
+            redirect("/Member/index?");
         }
     }
 
-    
+    public  function  delete(){
+        $id = $this->input->get('id');
+        redirect("/Member/index");
+    }
+
+
 
 }
