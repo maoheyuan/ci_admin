@@ -836,6 +836,7 @@ class CI_Form_validation {
 	 */
 	protected function _get_error_message($rule, $field)
 	{
+
 		// check if a custom message is defined through validation config row.
 		if (isset($this->_field_data[$field]['errors'][$rule]))
 		{
@@ -1586,5 +1587,14 @@ class CI_Form_validation {
 		$this->error_string = '';
 		return $this;
 	}
+
+    /*** 设置错误信息
+     * @param $field
+     * @param $message
+     */
+    public  function set_file_error($field,$message){
+
+        $this->_field_data[$field]["error"]=$message;
+    }
 
 }

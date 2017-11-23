@@ -78,7 +78,7 @@
                                 <td>
                                     <span class="label label-success"> <?=$item['status']?></span>
                                     <ul class="actions">
-                                        <li><a href="#">修改</a></li>
+                                        <li><a href="/Member/edit?id=<?=$item['id']?>">修改</a></li>
                                         <li class="last"><a href="#">删除</a></li>
                                     </ul>
                                 </td>

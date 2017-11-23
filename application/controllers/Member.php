@@ -32,35 +32,54 @@ class Member extends CI_Controller {
 
     public  function add(){
 
-
         $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('username', 'Username', 'required',array('required' => '用户名不能为空'));
-        $this->form_validation->set_rules('password', 'Password', 'required',array('required' => '密码不能为空'));
-        $this->form_validation->set_rules('rpassword', 'Password Confirmation', 'required|matches[password]',array('required' => '确认密码不能为空',"matches"=>"二次输入的密码不一致"));
-        $this->form_validation->set_rules('mobile', 'mobile', 'required',array('required' => '手机号不能为空'));
-        $this->form_validation->set_rules('status', 'Status', 'required',array('required' => '状态不能为空'));
-        $this->form_validation->set_rules('account', 'account', 'required',array('required' => '账号不能为空'));
-        $this->form_validation->set_rules('address', 'address', 'required',array('required' => '地址不能为空'));
-        if ($this->form_validation->run() == FALSE)
-        {
-            //$this->load->helper('url');
-            //redirect('/Member/add');
-
-
+        $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
+        $this->form_validation->set_rules('password' ,'', 'required',array('required' => '密码不能为空'));
+        $this->form_validation->set_rules('rpassword','', 'required',array('required' => '确认密码不能为空'));
+        $this->form_validation->set_rules('rpassword','', 'matches[password]', array("matches"=>"二次输入的密码不一致"));
+        $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
+        $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
+        $this->form_validation->set_rules('account'  ,'', 'required',array('required' => '账号不能为空'));
+        $this->form_validation->set_rules('address'  ,'', 'required',array('required' => '地址不能为空'));
+        if ($this->form_validation->run() == FALSE) {
             $this->load->view("member/add");
         }
-        else
-        {
-
+        else {
+            $post=$this->input->post();
+            $this->member_model->insert($post);
             $this->load->helper('url');
-            redirect('/Member/add');
+            redirect('/Member/index');
         }
-
     }
 
 
+    public  function edit(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
+        $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
+        $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
+        $this->form_validation->set_rules('account'  ,'', 'required',array('required' => '账号不能为空'));
+        $this->form_validation->set_rules('address'  ,'', 'required',array('required' => '地址不能为空'));
+        $id=$this->input->get("id");
+        $member=$this->member_model->get_info_by_id($id);
+        $data["member"]=$member;
+        $post=$this->input->post();
+        if ($this->form_validation->run() == FALSE ||$post["password"]!=$post["rpassword"]) {
+            if($this->input->method()=="post"){
+                $data["member"]=$post;
+                if($post["password"]!=$post["rpassword"]){
+                    $this->form_validation->set_file_error( "rpassword",'二次输入的密码不一致');
+                }
+            }
+            $this->load->view("member/edit",$data);
+        }
+        else {
+            $this->member_model->update($id,$post);
+            $this->load->helper('url');
+            redirect('/Member/index');
+        }
+    }
 
-
+    
 
 }
