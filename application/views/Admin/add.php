@@ -1,3 +1,6 @@
+<style>
+    .errortip{ color: red;}
+</style>
 <!-- main container -->
 <div class="content">
 
@@ -24,41 +27,49 @@
                 <!--  column -->
                 <div class="span12 column" style="margin-left: 30px;margin-top: 20px;">
 
-                    <form class="inline-input" />
+                    <?php echo form_open('/Admin/add',array("class"=>"inline-input")) ?>
                     <div class="span12 field-box">
                         <label>管理员名称:</label>
-                        <input class="span10" type="text" />
+                        <input class="span10" type="text" name="username" value="<?php echo set_value('username'); ?>"/>
+                        <div class="errortip"><?php echo form_error('username'); ?></div>
                     </div>
 
                     <div class="span12 field-box textarea">
                         <label>手机号码:</label>
-                        <input class="span10" type="text" />
+                        <input class="span10" type="text" name="mobile" value="<?php echo set_value('mobile'); ?>"/>
+                        <div class="errortip"><?php echo form_error('mobile'); ?></div>
                     </div>
 
                     <div class="span12 field-box">
                         <label>密码:</label>
-                        <input class="span10" type="text" />
+                        <input class="span10" type="password" name="password" value="<?php echo set_value('password'); ?>"/>
+                        <div class="errortip"><?php echo form_error('password'); ?></div>
                     </div>
+
                     <div class="span12 field-box">
                         <label>确认密码:</label>
-                        <input class="span10" type="text" />
+                        <input class="span10" type="password" name="rpassword" value="<?php echo set_value('rpassword'); ?>"/>
+                        <div class="errortip"><?php echo form_error('rpassword'); ?></div>
                     </div>
+
                     <div class="span12 field-box">
                         <label>状态:</label>
                         <div class="span10">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
-                                上架
+                                <input type="radio" name="status" id="status1" value="1" <?php if(set_value('status')==1){ echo "checked"; }; ?> />
+                                启用
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
-                                下架
+                                <input type="radio" name="status" id="status2" value="2" <?php if(set_value('status')==2){ echo "checked"; }; ?>/>
+                                禁用
                             </label>
                         </div>
                     </div>
+                    <div class="errortip "><?php echo form_error('status'); ?></div>
+
 
                     <div class="span10 field-box actions" style="text-align: right;">
-                        <input type="button" class="btn-glow primary" value="新增" />
+                        <input type="submit" class="btn-glow primary" value="新增" />
                         <span>OR</span>
                         <input type="reset" value="重置" class="reset" />
                     </div>
