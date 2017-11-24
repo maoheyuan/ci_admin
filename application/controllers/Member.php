@@ -23,7 +23,7 @@ class Member extends CI_Controller {
         $members=$this->member_model->get_members_by_keyword($keyword,"*",$page);
         $count=$this->member_model->count($keyword);
         $this->load->library('page');
-        $data["page"]=$this->page->getPage($count,10);
+        $data["page"]=$this->page->getPage($count,10,"/Member/index");
         $data["members"]=$members;
         $this->load->view('member/index',$data);
 

@@ -25,8 +25,11 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="分类名称"/>
-                        <a class="btn-flat success new-product" href="/Category/add">+新增</a>
+                        <form action="/Category/index" method="get">
+                            <input type="text" class="search" name="keyword" placeholder="分类名称"/>
+                            <a class="btn-flat success new-product" href="/Category/add">+新增</a>
+                        </form>
+                        
                     </div>
                 </div>
 

@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page {
 
-    public function getPage($total_rows,$per_page)
+    public function getPage($total_rows,$per_page,$base_url)
     {
         $ci =& get_instance();
         $ci->load->library('pagination');
-        $config['base_url'] = '/Member/index';
+        $config['base_url'] = $base_url;
         $config['total_rows'] = $total_rows;
         $config['per_page'] = $per_page;
         $config['reuse_query_string'] = true;
