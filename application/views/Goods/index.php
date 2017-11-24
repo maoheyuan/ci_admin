@@ -25,8 +25,10 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="商品名称"/>
-                        <a class="btn-flat success new-product" href="/Goods/add">+新增</a>
+                        <form action="/Goods/index" method="get">
+                            <input type="text" class="search" name="keyword" placeholder="商品名称"/>
+                            <a class="btn-flat success new-product" href="/Goods/add">+新增</a>
+                        </form>
                     </div>
                 </div>
 
@@ -39,11 +41,15 @@
                                 商品名称
                             </th>
                             <th class="span3">
-                                <span class="line"></span>商品价格
-                            </th>
-                            <th class="span3">
                                 <span class="line"></span>商品描述
                             </th>
+                            <th class="span3">
+                                <span class="line"></span>商品原价
+                            </th>
+                            <th class="span3">
+                                <span class="line"></span>商品销售价
+                            </th>
+
                             <th class="span3">
                                 <span class="line"></span>库存
                             </th>
@@ -59,331 +65,40 @@
                         </thead>
                         <tbody>
                         <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                              市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
 
-                            <td class="description">
-                               100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                                       <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                                       <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                                       <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                                       <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                                       <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">商品A </a>
-                            </td>
-                            <td class="description">
-                                市场价100/销售价200
-                            </td>
-                            <td class="description">
-                                商品A商品A商品A商品A
-                            </td>
-
-                            <td class="description">
-                                100
-                            </td>
-
-                            <td class="description">
-                                2014-12-15
-                            </td>
-
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
+                        <?php foreach ($goods as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
+                                    <input type="checkbox" />
+                                    <img src="/upload/image/<?=$item['image']?>" style="width: 32px;height: 32px;"/>
+                                    <?=$item['name']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['discription']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['market_price']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['sales_price']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['stock']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['addtime']?>
+                                </td>
+                                <td>
+                                    <span > <?=$item['status']?></span>
+                                    <ul class="actions">
+                                        <li><a href="/Goods/edit?id=<?=$item['id']?>">修改</a></li>
+                                        <li class="last"><a href="/Goods/delete?id=<?=$item['id']?>">删除</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -392,15 +107,7 @@
 
             <!-- start pagination -->
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>
+                <?=$page?>
             </div>
             <!-- end pagination -->
         </div>

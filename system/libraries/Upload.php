@@ -373,10 +373,13 @@ class CI_Upload {
 	 */
 	public function do_upload($field = 'userfile')
 	{
+
+
 		// Is $_FILES[$field] set? If not, no reason to continue.
 		if (isset($_FILES[$field]))
 		{
 			$_file = $_FILES[$field];
+
 		}
 		// Does the field name contain array notation?
 		elseif (($c = preg_match_all('/(?:^[^\[]+)|\[[^]]*\]/', $field, $matches)) > 1)
@@ -443,6 +446,7 @@ class CI_Upload {
 
 			return FALSE;
 		}
+
 
 		// Set the uploaded data as class variables
 		$this->file_temp = $_file['tmp_name'];
@@ -563,6 +567,8 @@ class CI_Upload {
 		 * we'll use move_uploaded_file(). One of the two should
 		 * reliably work in most environments
 		 */
+
+
 		if ( ! @copy($this->file_temp, $this->upload_path.$this->file_name))
 		{
 			if ( ! @move_uploaded_file($this->file_temp, $this->upload_path.$this->file_name))
@@ -993,7 +999,6 @@ class CI_Upload {
 			$this->set_error('upload_no_filepath', 'error');
 			return FALSE;
 		}
-
 		if (realpath($this->upload_path) !== FALSE)
 		{
 			$this->upload_path = str_replace('\\', '/', realpath($this->upload_path));

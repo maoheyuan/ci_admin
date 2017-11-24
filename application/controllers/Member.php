@@ -76,7 +76,7 @@ class Member extends CI_Controller {
         else {
 
             $this->member_model->update($id,$post);
-            redirect("/Member/index?");
+            redirect("/Member/index");
         }
     }
 

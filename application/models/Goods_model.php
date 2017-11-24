@@ -44,6 +44,9 @@ class Goods_model extends CI_Model {
         if($data["status"]==2){
             $data["status"]="禁用";
         }
+        if(!$data["image"]){
+            $data["image"]="/";
+        }
 
         return $data;
 
@@ -62,12 +65,12 @@ class Goods_model extends CI_Model {
 
 
     public  function  get_info_by_id($id){
-
         if(!$id){
             return false;
         }
-        $query=$this->db->where('id',$id)->from('members')->limit(1)->get();
-        return  $query->row_array();
+        $query=$this->db->where('id',$id)->from('goods')->limit(1)->get();
+        $data=$query->row_array();
+        return  $data;
     }
 
     public function insert($post=array()){
@@ -76,11 +79,10 @@ class Goods_model extends CI_Model {
         $data['image']  = $post['image'];
         $data['discription']   = $post['discription'];
         $data['content']  = $post['content'];
-        $data['market price']   = $post['market price'];
+        $data['market_price']   = $post['market_price'];
         $data['sales_price']   = $post['sales_price'];
         $data['stock']   = $post['stock'];
         $data['status']   = $post['status'];
-        $data['market price']   = $post['market price'];
         $data['addtime']  = time();
         return $this->db->insert('goods', $data);
     }
@@ -92,11 +94,10 @@ class Goods_model extends CI_Model {
         $data['image']  = $post['image'];
         $data['discription']   = $post['discription'];
         $data['content']  = $post['content'];
-        $data['market price']   = $post['market price'];
+        $data['market_price']   = $post['market_price'];
         $data['sales_price']   = $post['sales_price'];
         $data['stock']   = $post['stock'];
         $data['status']   = $post['status'];
-        $data['market price']   = $post['market price'];
         $data['edittime']  = time();
         return $this->db->where('id', $id)->update('goods', $data);
     }
