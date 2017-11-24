@@ -86,9 +86,8 @@ class Member extends CI_Controller {
 
     public  function  delete(){
         $id = $this->input->get('id');
+        $this->member_model->delete($id);
         redirect("/Member/index");
     }
-
-
 
 }

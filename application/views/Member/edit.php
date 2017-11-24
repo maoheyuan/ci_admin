@@ -82,7 +82,7 @@
                     <div class="errortip"><?php echo form_error('status'); ?></div>
                     <div class="span10 field-box actions" style="text-align: right;">
                         <input type="hidden" class="btn-glow primary" name="id" value="<?=$member['id']?>" />
-                        <input type="submit" class="btn-glow primary" value="新增" />
+                        <input type="submit" class="btn-glow primary" value="修改" />
                         <span>OR</span>
                         <input type="reset" value="重置" class="reset" />
                     </div>

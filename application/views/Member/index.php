@@ -62,7 +62,7 @@
 
                         <?php foreach ($members as $item): ?>
                             <!-- start row -->
-                            <tr class="first">
+                            <tr >
                                 <td>
                                     <input type="checkbox" />
                                     <div class="img">
@@ -80,7 +80,7 @@
                                     <?=$item['address']?>
                                 </td>
                                 <td>
-                                    <span class="label label-success"> <?=$item['status']?></span>
+                                    <span > <?=$item['status']?></span>
                                     <ul class="actions">
                                         <li><a href="/Member/edit?id=<?=$item['id']?>">修改</a></li>
                                         <li class="last"><a href="/Member/delete?id=<?=$item['id']?>">删除</a></li>
@@ -91,113 +91,6 @@
 
                         <?php endforeach; ?>
 
-
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                13978021294
-                            </td>
-                            <td class="description">
-                                1000
-                            </td>
-                            <td class="description">
-                                广西阳光产
-                            </td>
-                            <td>
-                                <span class="label label-info">Standby</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                13978021294
-                            </td>
-                            <td class="description">
-                                1000
-                            </td>
-                            <td class="description">
-                                广西阳光产
-                            </td>
-                            <td>
-                                <span class="label label-info">Standby</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                13978021294
-                            </td>
-                            <td class="description">
-                                1000
-                            </td>
-                            <td class="description">
-                                广西阳光产
-                            </td>
-                            <td>
-                                <span class="label label-info">Standby</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                13978021294
-                            </td>
-                            <td class="description">
-                                1000
-                            </td>
-                            <td class="description">
-                                广西阳光产
-                            </td>
-                            <td>
-                                <span class="label label-info">Standby</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
 
                         </tbody>
                     </table>

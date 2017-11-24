@@ -95,5 +95,11 @@ class Member_model extends CI_Model {
 
 
 
+    public  function  delete($id){
+        $this->db->where('id', $id);
+        return $this->db->delete('members');
+    }
+
+
 
 }
