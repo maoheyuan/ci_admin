@@ -1,3 +1,9 @@
+<!-- 配置文件 -->
+<script type="text/javascript" src="/static/ueditor1_4_3_3/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/static/ueditor1_4_3_3/ueditor.all.js"></script>
+
+
 <!-- main container -->
 <div class="content">
 
@@ -32,7 +38,7 @@
 
                     <div class="span12 field-box textarea">
                         <label>介简:</label>
-                        <textarea class="span10"></textarea>
+                        <input class="span10" type="text" />
                     </div>
 
                     <div class="span12 field-box">
@@ -51,8 +57,13 @@
 
                     <div class="span12 field-box textarea">
                         <label>内容:</label>
-                        <textarea class="span10" rows="15"></textarea>
+                        <textarea class="span10" style="margin-left: 0 !important;" id="container"></textarea>
 
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('container',{
+                            });
+                        </script>
                     </div>
 
                     <div class="span12 field-box">
@@ -89,6 +100,5 @@
 <script src="/static/js/jquery-latest.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/theme.js"></script>
-<script src="/static/js/base.js"></script>
 </body>
 </html>

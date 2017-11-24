@@ -5,7 +5,6 @@ class Member_model extends CI_Model {
     public function __construct(){
         parent::__construct();
         $this->load->database();
-
     }
 
     public function get_members_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
