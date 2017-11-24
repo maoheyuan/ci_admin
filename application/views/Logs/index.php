@@ -25,8 +25,9 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="订单编号/收货人姓名/收货人手机"/>
-
+                        <form action="/Logs/index" method="get">
+                        <input type="text" class="search" name="keyword"  placeholder="操作内容"/>
+                        </form>
                     </div>
                 </div>
 
@@ -42,7 +43,7 @@
                                 <span class="line"></span>操作内容
                             </th>
                             <th class="span3">
-                                <span class="line"></span>操作接口
+                                <span class="line"></span>操作模块
                             </th>
 
                             <th class="span3">
@@ -54,169 +55,32 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
 
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                              毛何远
-                            </td>
-                            <td class="description">
-                               13554820565
-                            </td>
-
-                            <td class="description">
-                               广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                               1000
-                            </td>
+                        <?php foreach ($logs as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
 
 
-                        </tr>
+                                    <?=$item['id']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['content']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['module']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['operator']?>
+                                </td>
 
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
+                                <td class="description">
+                                    <?=$item['addtime']?>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+                        <?php endforeach; ?>
 
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                        </tr>
-                        <!-- row -->
                         </tbody>
                     </table>
                 </div>
@@ -225,15 +89,7 @@
 
             <!-- start pagination -->
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>
+                <?=$page?>
             </div>
             <!-- end pagination -->
         </div>
