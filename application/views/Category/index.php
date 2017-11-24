@@ -51,149 +51,36 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                              2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Category/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Category/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
 
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
 
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                                <div class="img">
-                                    <img src="/static/img/table-img.png" />
-                                </div>
-                                <a href="#" class="name">毛何远 </a>
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td class="description">
-                                2014-11-12
-                            </td>
-                            <td>
-                                <span class="label label-info">禁用</span>
-                                <ul class="actions">
-                                    <li><a href="#">修改</a></li>
-                                    <li class="last"><a href="#">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
+                        <?php foreach ($categorys as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
+                                    <input type="checkbox" />
+                                    <div class="img">
+                                        <img src="/static/img/table-img.png" />
+                                    </div>
+                                    <?=$item['name']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['addtime']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['edittime']?>
+                                </td>
+                                <td>
+                                    <span > <?=$item['status']?></span>
+                                    <ul class="actions">
+                                        <li><a href="/Category/edit?id=<?=$item['id']?>">修改</a></li>
+                                        <li class="last"><a href="/Category/delete?id=<?=$item['id']?>">删除</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+
+                        <?php endforeach; ?>
+
 
                         </tbody>
                     </table>
@@ -203,15 +90,7 @@
 
             <!-- start pagination -->
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>
+                <?=$page?>
             </div>
             <!-- end pagination -->
         </div>

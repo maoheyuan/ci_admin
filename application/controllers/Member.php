@@ -25,10 +25,6 @@ class Member extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10);
         $data["members"]=$members;
-
-        $data["get"]["per_page"]=$page;
-        $data["get"]["keyword"]=$keyword;
-
         $this->load->view('member/index',$data);
 
 	}

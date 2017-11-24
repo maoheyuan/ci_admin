@@ -1,3 +1,8 @@
+<style>
+    .errortip{
+        color: red;
+    }
+</style>
 <!-- main container -->
 <div class="content">
 
@@ -23,24 +28,27 @@
             <div class="row-fluid form-wrapper">
                 <!--  column -->
                 <div class="span12 column" style="margin-left: 30px;margin-top: 20px;">
-                    <form class="inline-input"  action="/Category/add"/>
+                    <?php echo form_open('/Category/add',array("class"=>"inline-input")) ?>
                     <div class="span12 field-box">
                         <label>分类名称:</label>
-                        <input class="span10" type="text" />
+                        <input class="span10" type="text" name="name" value="<?php echo set_value('name'); ?>"/>
+                        <div class="errortip"><?php echo form_error('name'); ?></div>
                     </div>
                     <div class="span12 field-box">
                         <label>状态:</label>
                         <div class="span10">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                                <input type="radio" name="status" id="status1" value="1" <?php if(set_value('status')==1){ echo "checked"; }; ?> />
                                 启用
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                <input type="radio" name="status" id="status2" value="2" <?php if(set_value('status')==2){ echo "checked"; }; ?>/>
                                 禁用
                             </label>
                         </div>
                     </div>
+                    <div class="errortip "><?php echo form_error('status'); ?></div>
+
 
                     <div class="span11 field-box actions" style="text-align: right;">
                         <input type="submit" class="btn-glow primary" value="新增" />
