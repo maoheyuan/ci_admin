@@ -21,7 +21,7 @@ class Category extends CI_Controller {
     {
         $keyword = $this->input->get('keyword');
         $page = $this->input->get('per_page');
-        $categorys=$this->category_model->get_members_by_keyword($keyword,"*",$page);
+        $categorys=$this->category_model->get_categorys_by_keyword($keyword,"*",$page);
         $count=$this->category_model->count($keyword);
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Category/index");

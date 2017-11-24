@@ -8,7 +8,7 @@ class Admin_model extends CI_Model {
 
     }
 
-    public function get_members_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
+    public function get_admins_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
         if($keyword){
            $this->db->like('username', $keyword, 'both');
            $this->db->or_like('mobile',$keyword,'both');

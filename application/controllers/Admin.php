@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
     {
         $keyword = $this->input->get('keyword');
         $page = $this->input->get('per_page');
-        $admins=$this->admin_model->get_members_by_keyword($keyword,"*",$page);
+        $admins=$this->admin_model->get_admins_by_keyword($keyword,"*",$page);
         $count=$this->admin_model->count($keyword);
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Admin/index");

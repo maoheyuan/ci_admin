@@ -12,8 +12,6 @@ class Order extends CI_Controller {
         // $this->load->database();
     }
 
-
-
     public function index()
     {
         $this->load->view('Order/index');

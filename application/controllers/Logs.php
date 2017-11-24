@@ -13,9 +13,6 @@ class Logs extends CI_Controller {
         $this->load->view('Common/sidebarNav',$data);
     }
 
-
-
-
     public function index()
     {
         $keyword = $this->input->get('keyword');

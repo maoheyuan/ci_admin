@@ -8,7 +8,7 @@ class Category_model extends CI_Model {
 
     }
 
-    public function get_members_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
+    public function get_categorys_by_keyword($keyword="",$field='*',$offset=0,$limit=10){
         if($keyword){
            $this->db->like('name', $keyword, 'both');
         }
