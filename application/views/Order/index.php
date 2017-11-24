@@ -27,8 +27,10 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="订单编号/收货人姓名/收货人手机"/>
+                        <form action="/Order/index" method="get">
+                        <input type="text" class="search"  name="keyword" placeholder="订单编号/收货人姓名/收货人手机"/>
                         <a class="btn-flat success new-product" href="/Goods/add">+新增</a>
+                        </form>
                     </div>
                 </div>
 
@@ -47,13 +49,9 @@
                             <th class="span3">
                                 <span class="line"></span>收货人手机
                             </th>
-
                             <th class="span3">
                                 <span class="line"></span>收货地址
                             </th>
-
-
-
                             <th class="span3">
                                 <span class="line"></span>销售价格
                             </th>
@@ -77,279 +75,52 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                              毛何远
-                            </td>
-                            <td class="description">
-                               13554820565
-                            </td>
 
-                            <td class="description">
-                               广西归纳村29号
-                            </td>
+                        <?php foreach ($orders as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
+                                    <input type="checkbox" />
 
-                            <td class="description">
-                               1000
-                            </td>
+                                    <?=$item['ordersn']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['name']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['mobile']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['address']?>
+                                </td>
 
+                                <td class="description">
+                                    <?=$item['sales_price']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['pay_type']?>
+                                </td>
 
-                            <td class="description">
-                                微信支付
-                            </td>
+                                <td class="description">
+                                    <?=$item['pay_money']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['pay_time']?>
+                                </td>
 
-                            <td class="description">
-                                1000
-                            </td>
+                                <td class="description">
+                                    <?=$item['add_time']?>
+                                </td>
+                                <td>
+                                    <span > <?=$item['status']?></span>
+                                    <ul class="actions">
+                                        <li><a href="/Order/info?id=<?=$item['id']?>">详细</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+                        <?php endforeach; ?>
 
-                            <td class="description">
-                               201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Order/info/id/111">详细</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">启用</span>
-                                <ul class="actions">
-                                    <li><a href="/Goods/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Goods/delete/id/111">删除</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <!-- row -->
                         </tbody>
                     </table>
                 </div>
@@ -358,15 +129,7 @@
 
             <!-- start pagination -->
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>
+                <?=$page?>
             </div>
             <!-- end pagination -->
         </div>

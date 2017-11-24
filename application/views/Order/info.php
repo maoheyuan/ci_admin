@@ -69,40 +69,40 @@
                         <!-- row -->
                         <tr class="first">
                             <td>
-                                2014070811001
+                                <?=$order['ordersn']?>
                             </td>
                             <td class="description">
-                              毛何远
+                                <?=$order['name']?>
                             </td>
                             <td class="description">
-                               13554820565
-                            </td>
-
-                            <td class="description">
-                               广西归纳村29号
+                                <?=$order['mobile']?>
                             </td>
 
                             <td class="description">
-                               1000
+                                <?=$order['address']?>
+                            </td>
+
+                            <td class="description">
+                                <?=$order['sales_price']?>
                             </td>
 
 
                             <td class="description">
-                                微信支付
+                                <?=$order['pay_type']?>
                             </td>
 
                             <td class="description">
-                                1000
+                                <?=$order['pay_money']?>
                             </td>
 
                             <td class="description">
-                               201407081001
+                                <?=$order['pay_time']?>
                             </td>
                             <td class="description">
-                                201407081001
+                                <?=$order['add_time']?>
                             </td>
                             <td>
-                                支付完成
+                                <?=$order['status']?>
 
                             </td>
                         </tr>
@@ -151,251 +151,44 @@
                             <th class="span3">
                                 <span class="line"></span>新增时间
                             </th>
-
-                            <th class="span3">
-                                <span class="line"></span>状态
-                            </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
 
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
+                        <?php foreach ($order_goods as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
+                                    <?=$item['order_sn']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['goods_sn']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['goods_name']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['goods_num']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['market_price']?>
+                                </td>
 
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
+                                <td class="description">
+                                    <?=$item['sales_price']?>
+                                </td>
+                                <td class="description">
+                                    <?=$item['return_num']?>
+                                </td>
 
 
-                            <td class="description">
-                                微信支付
-                            </td>
+                                <td class="description">
+                                    <?=$item['add_time']?>
+                                </td>
 
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-                            <td class="description">
-                                13554820565
-                            </td>
-
-                            <td class="description">
-                                广西归纳村29号
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-
-                            <td class="description">
-                                微信支付
-                            </td>
-
-                            <td class="description">
-                                1000
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td class="description">
-                                201407081001
-                            </td>
-
-                        </tr>
-                        <!-- row -->
-
-                        <!-- row -->
+                            </tr>
+                            <!-- end row -->
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
