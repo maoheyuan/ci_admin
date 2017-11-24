@@ -143,7 +143,7 @@
         <?php else: ?>
             <li>
         <?php endif; ?>
-            <a href="/System/set">
+            <a href="/Config/index">
                 <i class="icon-picture"></i>
                 <span>系统设置</span>
             </a>
