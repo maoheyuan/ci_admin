@@ -1,14 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Images extends CI_Controller {
+class Images extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
         // $this->load->database();
     }
 
@@ -16,19 +12,19 @@ class Images extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('Images/index');
+        $this->layout->view('Images/index');
     }
     public  function  add(){
 
-        $this->load->view("Images/add");
+        $this->layout->view("Images/add");
     }
     public  function  edit(){
 
-        $this->load->view("Images/edit");
+        $this->layout->view("Images/edit");
     }
     public  function  info(){
 
-        $this->load->view("Images/info");
+        $this->layout->view("Images/info");
     }
 
 }

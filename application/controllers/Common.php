@@ -8,7 +8,6 @@ class Common extends CI_Controller {
         $data=array();
         $data['controller'] =  $this->router->fetch_class();
         $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
         // $this->load->database();
     }
 

@@ -1,23 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->helper('url');
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
     }
 
-
-
-
-    public function index()
-    {
+    public function index(){
         $keyword = $this->input->get('keyword');
         $page = $this->input->get('per_page');
         $admins=$this->admin_model->get_admins_by_keyword($keyword,"*",$page);
@@ -25,7 +17,7 @@ class Admin extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Admin/index");
         $data["admins"]=$admins;
-        $this->load->view('admin/index',$data);
+        $this->layout->view('admin/index',$data);
     }
 
 
@@ -38,7 +30,8 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
         $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view("admin/add");
+
+            $this->layout->view('admin/add');
         }
         else {
             $post=$this->input->post();
@@ -64,7 +57,7 @@ class Admin extends CI_Controller {
                     $this->form_validation->set_file_error( "rpassword",'二次输入的密码不一致');
                 }
             }
-            $this->load->view("admin/edit",$data);
+            $this->layout->view("admin/edit",$data);
         }
         else {
             $this->admin_model->update($id,$post);

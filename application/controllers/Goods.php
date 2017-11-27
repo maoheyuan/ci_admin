@@ -1,26 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Goods extends CI_Controller {
+class Goods extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
         $this->load->model('goods_model');
         $this->load->helper('url');
-
-
-
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
     }
 
 
 
 
-    public function index()
-    {
+    public function index(){
 
         $keyword = $this->input->get('keyword');
         $page = $this->input->get('per_page');
@@ -29,13 +21,12 @@ class Goods extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Goods/index");
         $data["goods"]=$goods;
-        $this->load->view('goods/index',$data);
+        $this->layout->view('goods/index',$data);
 
     }
 
 
     public  function add(){
-
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name' ,'', 'required',array('required' => '商品名称不能为空'));
         $this->form_validation->set_rules('discription','', 'required',array('required' => '简介不能为空'));
@@ -51,10 +42,9 @@ class Goods extends CI_Controller {
                     $this->form_validation->set_file_error( "image",'图片不能为空');
                 }
             }
-            $this->load->view("goods/add");
+            $this->layout->view("goods/add");
         }
         else {
-
             $image_file_name=$this->do_upload("image");
             if($image_file_name!=false){
                 $post=$this->input->post();
@@ -62,14 +52,14 @@ class Goods extends CI_Controller {
                 $result=$this->goods_model->insert($post);
                 if($result==false){
                     $this->form_validation->set_file_error( "error_tip",'商品新增失败');
-                    $this->load->view("goods/add");
+                    $this->layout->view("goods/add");
                 }else{
                     redirect('/Goods/index');
                 }
             }
             else{
                 $this->form_validation->set_file_error( "error_tip",'图片保存失败');
-                $this->load->view("goods/add");
+                $this->layout->view("goods/add");
             }
         }
     }
@@ -92,7 +82,6 @@ class Goods extends CI_Controller {
 
 
     public  function edit(){
-
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name' ,'', 'required',array('required' => '商品名称不能为空'));
         $this->form_validation->set_rules('discription','', 'required',array('required' => '简介不能为空'));
@@ -110,7 +99,7 @@ class Goods extends CI_Controller {
                 $data["goods"]=$post;
                 $data["goods"]["image"]=$goods["image"];
             }
-            $this->load->view("goods/edit",$data);
+            $this->layout->view("goods/edit",$data);
         }
         else {
             $post=$this->input->post();
@@ -142,7 +131,7 @@ class Goods extends CI_Controller {
                 if($edit_status=="update_image_fail"){
                     $this->form_validation->set_file_error( "error_tip",'图片保存失败');
                 }
-                $this->load->view("goods/edit",$data);
+                $this->layout->view("goods/edit",$data);
             }
             else{
                 redirect('/Goods/index');

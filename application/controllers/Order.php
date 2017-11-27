@@ -1,21 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order extends CI_Controller {
+class Order extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
         $this->load->model('order_model');
         $this->load->model('ordergoods_model');
         $this->load->helper('url');
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
+
     }
 
-    public function index()
-    {
+    public function index(){
 
         $keyword = $this->input->get('keyword');
         $page = $this->input->get('per_page');
@@ -24,7 +20,7 @@ class Order extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Order/index");
         $data["orders"]=$orders;
-        $this->load->view('order/index',$data);
+        $this->layout->view('order/index',$data);
 
     }
 
@@ -40,7 +36,7 @@ class Order extends CI_Controller {
             $data["order"]=$order;
             $data["order_goods"]=$order_goods;
         }
-        $this->load->view('order/info',$data);
+        $this->layout->view('order/info',$data);
     }
 
 }

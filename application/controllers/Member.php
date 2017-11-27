@@ -1,16 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Member extends CI_Controller {
+class Member extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
         $this->load->model('member_model');
         $this->load->helper('url');
-        $data=array();
-        $data['controller'] =  $this->router->fetch_class();
-        $this->load->view('Common/headerNav');
-        $this->load->view('Common/sidebarNav',$data);
     }
 
 
@@ -25,7 +21,7 @@ class Member extends CI_Controller {
         $this->load->library('page');
         $data["page"]=$this->page->getPage($count,10,"/Member/index");
         $data["members"]=$members;
-        $this->load->view('member/index',$data);
+        $this->layout->view('member/index',$data);
 
 	}
 
@@ -42,7 +38,7 @@ class Member extends CI_Controller {
         $this->form_validation->set_rules('account'  ,'', 'required',array('required' => '账号不能为空'));
         $this->form_validation->set_rules('address'  ,'', 'required',array('required' => '地址不能为空'));
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view("member/add");
+            $this->layout->view("member/add");
         }
         else {
             $post=$this->input->post();
@@ -71,7 +67,7 @@ class Member extends CI_Controller {
                     $this->form_validation->set_file_error( "rpassword",'二次输入的密码不一致');
                 }
             }
-            $this->load->view("member/edit",$data);
+            $this->layout->view("member/edit",$data);
         }
         else {
 
