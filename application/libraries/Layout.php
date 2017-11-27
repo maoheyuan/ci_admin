@@ -5,7 +5,7 @@ class Layout {
     public  $data;
     //$this -> load -> library('**','**')的第二个参数必须得是数组才能给构造函数传参
     function __construct($params = array('main')) {
-        $this->layout = 'layouts' . DIRECTORY_SEPARATOR . $params[0];
+        $this->layout = 'Layouts' . DIRECTORY_SEPARATOR . $params[0];
     }
     function view($view, $data = null, $flag = false) {
         $ci =& get_instance();

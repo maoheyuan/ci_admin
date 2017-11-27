@@ -21,9 +21,15 @@
     <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
-<link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
 
-<link rel="stylesheet" href="/static/css/compiled/form-showcase.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/compiled/form-showcase.css" type="text/css" />
+
+    <!-- scripts -->
+    <script src="/static/js/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/theme.js"></script>
+
 <body>
 
 <!-- navbar -->
@@ -225,11 +231,6 @@
     <?php echo $content; ?>
 </div>
 
-
-<!-- scripts -->
-<script src="/static/js/jquery-latest.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/theme.js"></script>
 <script src="/static/js/base.js"></script>
 </body>
 </html>

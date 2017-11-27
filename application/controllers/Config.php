@@ -7,15 +7,10 @@ class Config extends MY_Controller {
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->helper('url');
-
     }
-
-
-
 
     public function index()
     {
-
         $this->load->library('form_validation');
         $this->layout->view('Config/index');
 

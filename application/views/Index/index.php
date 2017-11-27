@@ -72,11 +72,9 @@
 
 
 <!-- scripts -->
-<script src="/static/js/jquery-latest.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
+
 <script src="/static/js/jquery-ui-1.10.2.custom.min.js"></script>
-<script src="/static/js/theme.js"></script>
-<script src="/static/js/base.js"></script>
+
 
 <!-- knob -->
 <script src="/static/js/jquery.knob.js"></script>
@@ -200,6 +198,3 @@
 
     });
 </script>
-
-</body>
-</html>
