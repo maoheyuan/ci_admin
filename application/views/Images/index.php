@@ -25,8 +25,10 @@
 
                 <div class="row-fluid filter-block">
                     <div class="pull-right">
-                        <input type="text" class="search"  placeholder="图片名称"/>
+                    <form action="/Images/index" method="get">
+                        <input type="text" class="search" name="keyword" placeholder="Id"/>
                         <a class="btn-flat success new-product" href="/Images/add">+新增</a>
+                    </form>
                     </div>
                 </div>
 
@@ -40,9 +42,6 @@
                             </th>
 
                             <th class="span3">
-                                <span class="line"></span>名称
-                            </th>
-                            <th class="span3">
                                 <span class="line"></span>图片
                             </th>
                             
@@ -51,123 +50,37 @@
                             </th>
 
                             <th class="span3">
-                                <span class="line"></span>状态
+                                <span class="line"></span>修改时间
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
 
+                        <?php foreach ($images as $item): ?>
+                            <!-- start row -->
+                            <tr >
+                                <td>
+                                    <input type="checkbox" />
 
-                            <td class="description">
-                                <div class="img">
-                                    <img src="/static/img/table-img.png">
-                                </div>
-                            </td>
+                                    <?=$item['id']?>
+                                </td>
+                                <td class="description">
+                                        <img src="/upload/image/<?=$item['name']?>"  style="height: 50px;width: 50px;"/>
+                                </td>
+                                <td class="description">
+                                    <?=$item['add_time']?>
+                                </td>
+                                <td>
+                                    <span > <?=$item['edit_time']?></span>
+                                    <ul class="actions">
+                                        <li><a href="/Images/edit?id=<?=$item['id']?>">修改</a></li>
+                                        <li class="last"><a href="/Images/delete?id=<?=$item['id']?>">删除</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- end row -->
+                        <?php endforeach; ?>
 
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-                                <ul class="actions">
-                                    <li><a href="/Images/edit/id/111">修改</a></li>
-                                    <li class="last"><a href="/Images/delete/id/111">删除</a></li>
-                                </ul>
-
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-
-
-                            <td class="description">
-                                <div class="img">
-                                    <img src="/static/img/table-img.png">
-                                </div>
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-
-
-                            <td class="description">
-                                <div class="img">
-                                    <img src="/static/img/table-img.png">
-                                </div>
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-
-                            </td>
-                        </tr>
-                        <!-- row -->
-
-                        <!-- row -->
-                        <tr class="first">
-                            <td>
-                                <input type="checkbox" />
-                                <a href="#" class="name">2014070811001 </a>
-                            </td>
-                            <td class="description">
-                                毛何远
-                            </td>
-
-
-                            <td class="description">
-                                <div class="img">
-                                    <img src="/static/img/table-img.png">
-                                </div>
-                            </td>
-
-                            <td class="description">
-                                201407081001
-                            </td>
-                            <td>
-                                <span class="label label-success">支付完成</span>
-
-                            </td>
-                        </tr>
-                        <!-- row -->
 
                         </tbody>
                     </table>
@@ -177,15 +90,7 @@
 
             <!-- start pagination -->
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">‹</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">›</a></li>
-                </ul>
+                <?=$page?>
             </div>
             <!-- end pagination -->
         </div>

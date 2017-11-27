@@ -1,3 +1,6 @@
+<style>
+    .errortip{ color: red;}
+</style>
 <!-- main container -->
 <div class="content">
 
@@ -23,37 +26,19 @@
             <div class="row-fluid form-wrapper">
                 <!--  column -->
                 <div class="span12 column" style="margin-left: 30px;margin-top: 20px;">
-
-                    <form class="inline-input" action="/Images/add"/>
-                    <div class="span12 field-box">
-                        <label>商品名称:</label>
-                        <input class="span10" type="text" />
-                    </div>
+                    <?php echo form_open_multipart('/Images/add',array("class"=>"inline-input")) ?>
+                    <div class="errortip"><?php echo form_error('error_tip'); ?></div>
 
                     <div class="span12 field-box textarea">
                         <label>图片:</label>
-                        <input type="file">
-                    </div>
-
-
-                    <div class="span12 field-box">
-                        <label>状态:</label>
-                        <div class="span10">
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
-                                上架
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
-                                下架
-                            </label>
-                        </div>
+                        <input class="span10" type="file" name="image" />
+                        <div class="errortip"><?php echo form_error('image'); ?></div>
                     </div>
 
 
 
                     <div class="span10 field-box actions" style="text-align: right;">
-                        <input type="button" class="btn-glow primary" value="新增" />
+                        <input type="submit" class="btn-glow primary" value="新增" />
                         <span>OR</span>
                         <input type="reset" value="重置" class="reset" />
                     </div>

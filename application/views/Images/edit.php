@@ -24,41 +24,25 @@
                 <!--  column -->
                 <div class="span12 column" style="margin-left: 30px;margin-top: 20px;">
 
-                    <form class="inline-input" action="/Images/add"/>
+                    <?php echo form_open_multipart('/Images/edit?id='.$image['id'],array("class"=>"inline-input")) ?>
+
+                    <div class="errortip"><?php echo form_error('error_tip'); ?></div>
+
+
                     <div class="span12 field-box">
-                        <label>商品名称:</label>
-                        <input class="span10" type="text" />
+                        <label>商品图片:</label>
+                        <input class="span10" type="file" name="image" />
+                        <div class="errortip"><?php echo form_error('image'); ?></div>
                     </div>
 
-                    <div class="span12 field-box textarea">
-                        <label>图片:</label>
-                        <input type="file">
-                    </div>
-
-                    <div class="span12 field-box textarea">
-                        <label></label>
-                        <div class="img span10">
-                            <img src="/static/img/table-img.png">
-                        </div>
-                    </div>
                     <div class="span12 field-box">
-                        <label>状态:</label>
-                        <div class="span10">
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
-                                上架
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
-                                下架
-                            </label>
-                        </div>
+                        <label>商品原图片:</label>
+                        <img src="/upload/image/<?=$image['name']?>" style="height: 100px;width: 100px;">
                     </div>
-
-
 
                     <div class="span10 field-box actions" style="text-align: right;">
-                        <input type="button" class="btn-glow primary" value="新增" />
+                        <input type="hidden" name="id" value="<?=$image['id']?>">
+                        <input type="submit" class="btn-glow primary" value="修改" />
                         <span>OR</span>
                         <input type="reset" value="重置" class="reset" />
                     </div>
