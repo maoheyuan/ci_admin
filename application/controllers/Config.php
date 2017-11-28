@@ -5,36 +5,37 @@ class Config extends MY_Controller {
 
     public  function __construct(){
         parent::__construct();
-        $this->load->model('admin_model');
+        $this->load->model('config_model');
         $this->load->helper('url');
     }
 
     public function index()
     {
-        $this->load->library('form_validation');
-        $this->layout->view('Config/index');
-
-    }
-
-
-    public  function add(){
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
-        $this->form_validation->set_rules('rpassword','', 'required|matches[password]',array('required' => '确认密码不能为空',"matches"=>"二次输入的密码不一致"));
-        $this->form_validation->set_rules('password' ,'', 'required',array('required' => '密码不能为空'));
-        $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
-        $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view("admin/add");
+        $id=$this->input->get("id");
+        $config=$this->config_model->get_all($id);
+        $configArray=array();
+        foreach($config as $key=>$value){
+            $configArray[$value["key"]]=$value["value"];
         }
-        else {
+
+        if($this->input->method()=="post"){
             $post=$this->input->post();
-            $this->admin_model->insert($post);
-            redirect('/Admin/index');
+            if(!$post["domain"]){
+                $this->form_validation->set_file_error( "domain",'二次输入的密码不一致');
+            }
+            else{
+                foreach($post as $key=>$value){
+                    $this->config_model->update_by_key($key,$value);
+                }
+            }
+            $configArray=$post;
         }
-    }
+        $data["config"]=$configArray;
+        $this->layout->view('Config/index',$data);
 
+    }
 
 
 }

@@ -44,7 +44,6 @@ class Images extends MY_Controller {
     public  function  add(){
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
         if ($this->input->method()=="get") {
 
 

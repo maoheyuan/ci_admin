@@ -30,58 +30,69 @@
                     <?php echo form_open('/Config/index',array("class"=>"inline-input")) ?>
                     <div class="span12 field-box">
                         <label>域名:</label>
-                        <input class="span10" type="text" name="username" value="<?php echo set_value('username'); ?>"/>
-                        <div class="errortip"><?php echo form_error('username'); ?></div>
+                        <input class="span10" type="text" name="domain" value="<?=$config['domain']?>" placeholder="域名"/>
+                        <div class="errortip"><?php echo form_error('domain'); ?></div>
                     </div>
 
                     <div class="span12 field-box textarea">
                         <label>邮箱:</label>
-                        <input class="span10" type="text" name="mobile" value="<?php echo set_value('mobile'); ?>"/>
-                        <div class="errortip"><?php echo form_error('mobile'); ?></div>
+                        <input class="span10" type="text" name="email" value="<?=$config['email']?>" placeholder="邮箱"/>
+                        <div class="errortip"><?php echo form_error('email'); ?></div>
                     </div>
 
                     <div class="span12 field-box">
-                        <label>支付宝key:</label>
-                        <input class="span10" type="password" name="password" value="<?php echo set_value('password'); ?>"/>
-                        <div class="errortip"><?php echo form_error('password'); ?></div>
+                        <label>统计代码:</label>
+                        <input class="span10" type="text" name="statistical_code" value="<?=$config['statistical_code']?>" placeholder="统计代码"/>
+                        <div class="errortip"><?php echo form_error('statistical_code'); ?></div>
                     </div>
                     <div class="span12 field-box">
-                        <label>支付宝srcent:</label>
-                        <input class="span10" type="password" name="rpassword" value="<?php echo set_value('rpassword'); ?>"/>
-                        <div class="errortip"><?php echo form_error('rpassword'); ?></div>
+                        <label>支付宝APPID:</label>
+                        <input class="span10" type="text" name="alipay_appid" value="<?=$config['alipay_appid']?>" placeholder="APPID"/>
+                        <div class="errortip"><?php echo form_error('alipay_appid'); ?></div>
                     </div>
                     <div class="span12 field-box">
-                        <label>支付宝证书:</label>
-                        <input class="span10" type="text" name="account" value="<?php echo set_value('account'); ?>"/>
-                        <div class="errortip"><?php echo form_error('account'); ?></div>
+                        <label>支付宝商户私钥:</label>
+                        <input class="span10" type="password" name="alipay_merchant_private_key" value="<?=$config['alipay_merchant_private_key']?>" placeholder="merchant_private_key"/>
+                        <div class="errortip"><?php echo form_error('alipay_merchant_private_key'); ?></div>
+                    </div>
+                    <div class="span12 field-box">
+                        <label>支付宝公钥:</label>
+                        <input class="span10" type="password" name="alipay_public_key" value="<?=$config['alipay_public_key']?>" placeholder="alipay_public_key"/>
+                        <div class="errortip"><?php echo form_error('alipay_public_key'); ?></div>
                     </div>
 
                     <div class="span12 field-box">
-                        <label>微信key</label>
-                        <input class="span10" type="text" name="address" value="<?php echo set_value('address'); ?>"/>
-                        <div class="errortip"><?php echo form_error('address'); ?></div>
+                        <label>微信APPID</label>
+                        <input class="span10" type="text" name="weixin_appid" value="<?=$config['weixin_appid']?>" placeholder="APPID"/>
+                        <div class="errortip"><?php echo form_error('weixin_appid'); ?></div>
                     </div>
 
                     <div class="span12 field-box">
-                        <label>微信srcent</label>
-                        <input class="span10" type="text" name="address" value="<?php echo set_value('address'); ?>"/>
-                        <div class="errortip"><?php echo form_error('address'); ?></div>
+                        <label>微信支付商户号:</label>
+                        <input class="span10" type="text" name="weixin_mch_id" value="<?=$config['weixin_mch_id']?>" placeholder="mch_id"/>
+                        <div class="errortip"><?php echo form_error('weixin_mch_id'); ?></div>
                     </div>
                     <div class="span12 field-box">
-                        <label>微信证书</label>
-                        <input class="span10" type="text" name="address" value="<?php echo set_value('address'); ?>"/>
-                        <div class="errortip"><?php echo form_error('address'); ?></div>
+                        <label>微信API密钥:</label>
+                        <input class="span10" type="text" name="weixin_private_key" value="<?=$config['weixin_private_key']?>" placeholder="API密钥"/>
+                        <div class="errortip"><?php echo form_error('weixin_private_key'); ?></div>
+                    </div>
+
+                    <div class="span12 field-box">
+                        <label>微信Appsecret:</label>
+                        <input class="span10" type="text" name="weixin_appsecret" value="<?=$config['weixin_appsecret']?>" placeholder="Appsecret"/>
+                        <div class="errortip"><?php echo form_error('weixin_appsecret'); ?></div>
                     </div>
 
                     <div class="span12 field-box">
                         <label>网站状态:</label>
                         <div class="span10">
                             <label class="radio">
-                                <input type="radio" name="status" id="status1" value="1" <?php if(set_value('status')==1){ echo "checked"; }; ?> />
+                                <input type="radio" name="status" id="status1" value="1" <?php if($config['status']==1){ echo "checked"; }; ?> />
                                 启用
                             </label>
                             <label class="radio">
-                                <input type="radio" name="status" id="status2" value="2" <?php if(set_value('status')==2){ echo "checked"; }; ?>/>
+                                <input type="radio" name="status" id="status2" value="2" <?php if($config['status']==2){ echo "checked"; }; ?>/>
                                 禁用
                             </label>
                         </div>
