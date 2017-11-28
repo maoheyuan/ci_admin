@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('url');
         $admin=$this->session->userdata('admin');
-        if($admin){
+        if(!$admin){
             redirect("/Common/login");
         }
         $this->load->library('layout',array('main'));

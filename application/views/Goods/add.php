@@ -118,10 +118,3 @@
     </div>
 </div>
 <!-- end main container -->
-
-<!-- scripts -->
-<script src="/static/js/jquery-latest.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/theme.js"></script>
-</body>
-</html>

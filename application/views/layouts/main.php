@@ -29,7 +29,7 @@
     <script src="/static/js/jquery-latest.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/theme.js"></script>
-
+    <script src="/static/js/jquery-ui-1.10.2.custom.min.js"></script>
 <body>
 
 <!-- navbar -->
@@ -50,15 +50,16 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
-                    Your account
+                    <?php
+                        $admin= $this->session->userdata('admin');
+                        echo $admin["username"]?$admin["username"]:"";
+                    ?>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html"><i class="icon-share-alt"></i>&nbsp;个人信息</a></li>
-                    <li><a href="#"><i class="icon-share-alt"></i>&nbsp;账号设置</a></li>
-                    <li><a href="#"><i class="icon-share-alt"></i>&nbsp;金额管理</a></li>
-                    <li><a href="#"><i class="icon-share-alt"></i>&nbsp;导出数据</a></li>
-                    <li><a href="#"> <i class="icon-share-alt"></i><span>&nbsp;退出</span></a></li>
+                    <li><a href="/Admin/self"><i class="icon-share-alt"></i>&nbsp;个人信息</a></li>
+
+                    <li><a href="/Common/loginOut"> <i class="icon-share-alt"></i><span>&nbsp;退出</span></a></li>
                 </ul>
             </li>
         </ul>

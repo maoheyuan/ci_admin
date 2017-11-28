@@ -97,4 +97,17 @@ class Admin_model extends CI_Model {
 
 
 
+    public  function  login($username,$password){
+
+        $query=$this->db->where('username',$username)->from('admins')->limit(1)->get();
+        $admin=$query->row_array();
+        if($admin["password"]==$password){
+            return $admin;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }

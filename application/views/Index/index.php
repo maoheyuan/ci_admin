@@ -73,11 +73,9 @@
 
 <!-- scripts -->
 
-<script src="/static/js/jquery-ui-1.10.2.custom.min.js"></script>
 
 
-<!-- knob -->
-<script src="/static/js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="/static/js/jquery.flot.js"></script>
 <script src="/static/js/jquery.flot.stack.js"></script>
@@ -86,31 +84,6 @@
 
 <script type="text/javascript">
     $(function () {
-
-        // jQuery Knobs
-        $(".knob").knob();
-
-
-
-        // jQuery UI Sliders
-        $(".slider-sample1").slider({
-            value: 100,
-            min: 1,
-            max: 500
-        });
-        $(".slider-sample2").slider({
-            range: "min",
-            value: 130,
-            min: 1,
-            max: 500
-        });
-        $(".slider-sample3").slider({
-            range: true,
-            min: 0,
-            max: 500,
-            values: [ 40, 170 ]
-        });
-
 
 
         // jQuery Flot Chart
@@ -160,41 +133,7 @@
                 }
             });
 
-        function showTooltip(x, y, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css( {
-                position: 'absolute',
-                display: 'none',
-                top: y - 30,
-                left: x - 50,
-                color: "#fff",
-                padding: '2px 5px',
-                'border-radius': '6px',
-                'background-color': '#000',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
 
-        var previousPoint = null;
-        $("#statsChart").bind("plothover", function (event, pos, item) {
-            if (item) {
-                if (previousPoint != item.dataIndex) {
-                    previousPoint = item.dataIndex;
-
-                    $("#tooltip").remove();
-                    var x = item.datapoint[0].toFixed(0),
-                        y = item.datapoint[1].toFixed(0);
-
-                    var month = item.series.xaxis.ticks[item.dataIndex].label;
-
-                    showTooltip(item.pageX, item.pageY,
-                        item.series.label + " of " + month + ": " + y);
-                }
-            }
-            else {
-                $("#tooltip").remove();
-                previousPoint = null;
-            }
-        });
 
     });
 </script>

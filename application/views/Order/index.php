@@ -29,7 +29,6 @@
                     <div class="pull-right">
                         <form action="/Order/index" method="get">
                         <input type="text" class="search"  name="keyword" placeholder="订单编号/收货人姓名/收货人手机"/>
-                        <a class="btn-flat success new-product" href="/Goods/add">+新增</a>
                         </form>
                     </div>
                 </div>
@@ -136,11 +135,3 @@
     </div>
 </div>
 <!-- end main container -->
-
-<!-- scripts -->
-<script src="/static/js/jquery-latest.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/theme.js"></script>
-<script src="/static/js/base.js"></script>
-</body>
-</html>
