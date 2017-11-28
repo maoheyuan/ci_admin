@@ -23,7 +23,7 @@ class Index extends MY_Controller {
         $data["orders_money"] = $orders_money['pay_money'];
 
 
-        
+
         $this->layout->view('index/index',$data);
 	}
 

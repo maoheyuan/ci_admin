@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="index.html"><img src="/static/img/logo.png" /></a>
+        <a class="brand" href="index.html"><img src="/static/img/logo1.png" /></a>
         <ul class="nav pull-right">
             <li class="notification-dropdown hidden-phone">
                 <a href="#" class="trigger">
