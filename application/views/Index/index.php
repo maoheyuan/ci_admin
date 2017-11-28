@@ -19,31 +19,31 @@
             <div class="row-fluid stats-row">
                 <div class="span3 stat">
                     <div class="data">
-                        <span class="number">2457</span>
-                        访客
+                        <span class="number"><?=$goods_count?></span>
+                        商品
                     </div>
-                    <span class="date">今日</span>
+                    <span class="date">所有</span>
                 </div>
                 <div class="span3 stat">
                     <div class="data">
-                        <span class="number">3240</span>
+                        <span class="number"><?=$members_count?></span>
                         用户
                     </div>
-                    <span class="date">本月</span>
+                    <span class="date">所有</span>
                 </div>
                 <div class="span3 stat">
                     <div class="data">
-                        <span class="number">322</span>
+                        <span class="number"><?=$orders_count?></span>
                         订单
                     </div>
-                    <span class="date">本总</span>
+                    <span class="date">所有</span>
                 </div>
                 <div class="span3 stat last">
                     <div class="data">
-                        <span class="number">$2,340</span>
+                        <span class="number">$<?=$orders_money?></span>
                         销售
                     </div>
-                    <span class="date">近30天</span>
+                    <span class="date">所有</span>
                 </div>
             </div>
         </div>
@@ -56,9 +56,9 @@
                 <h4>
                     统计
                     <div class="btn-group pull-right">
-                        <button class="glow left">天</button>
+                       <!-- <button class="glow left">天</button>
                         <button class="glow middle active">月</button>
-                        <button class="glow right">年</button>
+                        <button class="glow right">年</button>-->
                     </div>
                 </h4>
                 <div class="span12">
@@ -91,8 +91,8 @@
         var visitors = [[1, 25], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
 
         var plot = $.plot($("#statsChart"),
-            [ { data: visits, label: "Signups"},
-                { data: visitors, label: "Visits" }], {
+            [ { data: visits, label: "订单"},
+                { data: visitors, label: "销售金额" }], {
                 series: {
                     lines: { show: true,
                         lineWidth: 1,
@@ -117,8 +117,8 @@
                 },
                 colors: ["#a7b5c5", "#30a0eb"],
                 xaxis: {
-                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
-                        [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
+                    ticks: [[1, "-月"], [2, "二月"], [3, "三月"], [4,"四月"], [5,"五月"], [6,"六月"],
+                        [7,"七月"], [8,"八月"], [9,"九月"], [10,"十月"], [11,"十一月"], [12,"十二月"]],
                     font: {
                         size: 12,
                         family: "Open Sans, Arial",
