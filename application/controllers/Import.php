@@ -8,28 +8,41 @@ class Import extends MY_Controller {
 
     }
 
+
+    public  function  all(){
+
+        $this->admins();
+        $this->category();
+        $this->goods();
+        $this->members();
+        $this->logs();
+        $this->orders();
+    }
     public function admins(){
-        return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
+
+        $store->where('realName !=',"");
+        $store->where('userName !=',"");
         $query =$store->get('ot_admin');
+
         $list=$query->result_array();
+        //echo $store->last_query();
         foreach($list as $key=>$value){
             $admin=array();
             $admin["username"]=$value["userName"];
+            $admin["realname"]=$value["realName"];
             $admin["mobile"]=$value["mobile"];
             $admin["password"]=$value["password"];
             $admin["status"]=1;
             $admin["addtime"]=$value["addTime"];
             $admin["edittime"]=$value["editTime"];
-
             $db->insert('admins', $admin);
         }
     }
 
 
     public function category(){
-        return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
         $store->where('tbParentId !=', 0);
@@ -50,7 +63,6 @@ class Import extends MY_Controller {
 
 
     public function goods(){
-        return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
 /*
@@ -82,7 +94,6 @@ class Import extends MY_Controller {
     }
 
     public function members(){
-        return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
         $store->where('attentions =', 1);
