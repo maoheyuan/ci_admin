@@ -71,6 +71,7 @@ class Admin_model extends CI_Model {
     public function insert($post=array()){
         $data=array();
         $data['username']   = $post['username'];
+        $data['realname']   = $post['realname'];
         $data['mobile']  = $post['mobile'];
         $data['password']   = $post['password'];
         $data["status"]=$post["status"];
@@ -81,6 +82,7 @@ class Admin_model extends CI_Model {
     public function update($id,$post=array()){
         $data=array();
         $data['username']   = $post['username'];
+        $data['realname']   = $post['realname'];
         $data['mobile']  = $post['mobile'];
         $data['password']   = $post['password'];
         $data['status']   = $post['status'];

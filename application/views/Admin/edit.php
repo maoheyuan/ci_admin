@@ -36,6 +36,16 @@
                         <div class="errortip"><?php echo form_error('username'); ?></div>
                     </div>
 
+
+
+                    <div class="span12 field-box">
+                        <label>真实姓名:</label>
+                        <input class="span10" type="text" name="realname" value="<?=$admin['realname']?>"/>
+                        <div class="errortip"><?php echo form_error('realname'); ?></div>
+                    </div>
+
+
+
                     <div class="span12 field-box textarea">
                         <label>手机号码:</label>
                         <input class="span10" type="text" name="mobile" value="<?=$admin['mobile']?>"/>

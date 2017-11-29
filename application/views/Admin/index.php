@@ -40,15 +40,19 @@
                                 <!-- <input type="checkbox" />-->
                                 ID
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                <!-- <input type="checkbox" />-->
                                 管理员名称
+                            </th>
+                            <th class="span2">
+                                <!-- <input type="checkbox" />-->
+                                真实姓名
                             </th>
                             <th class="span2">
                                 <span class="line"></span>手机号
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>新增时间
                             </th>
                             <th class="span3">
@@ -73,6 +77,10 @@
                                     </div>-->
                                     <?=$item['username']?>
                                 </td>
+                                <td class="description">
+                                    <?=$item['realname']?>
+                                </td>
+
                                 <td class="description">
                                     <?=$item['mobile']?>
                                 </td>

@@ -96,13 +96,13 @@ class Import extends MY_Controller {
          var_dump($list);
          exit;*/
         foreach($list as $key=>$value){
-
             $member=array();
-            $member["username"]=$value["realname"];
+            $member["username"]=$value["addTime"];
             $member["password"]=$value["openID"];
             $member["mobile"]=$value["mobile"];
             $member["account"]=$value["account"];
             $member["address"]=$value["address"];
+            $member["realname"]=$value["realname"];
             $member["status"]=rand(1,2);
             $member["addtime"]=$value["addTime"];
             $member["edittime"]=$value["editTime"];

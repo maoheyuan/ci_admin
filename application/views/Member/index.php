@@ -41,8 +41,11 @@
                             <th class="span1">
                                 Id
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 会员名称
+                            </th>
+                            <th class="span2">
+                                真实姓名
                             </th>
                             <th class="span2">
                                 <span class="line"></span>手机号
@@ -51,7 +54,7 @@
                                 <span class="line"></span>账户金额
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>地址
                             </th>
 
@@ -71,10 +74,14 @@
 
                                 <td>
 
-                                 <!--   <div class="img">
-                                        <img src="/static/img/table-img.png" />
-                                    </div>-->
+                                    <!--   <div class="img">
+                                           <img src="/static/img/table-img.png" />
+                                       </div>-->
                                     <?=$item['username']?>
+                                </td>
+
+                                <td>
+                                    <?=$item['realname']?>
                                 </td>
                                 <td class="description">
                                     <?=$item['mobile']?>

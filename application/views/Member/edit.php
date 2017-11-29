@@ -30,10 +30,17 @@
                 <div class="span12 column" style="margin-left: 30px;margin-top: 20px;">
 
                     <?php echo form_open('/Member/edit?id='.$member['id'],array("class"=>"inline-input")) ?>
+
                     <div class="span12 field-box">
                         <label>会员名称:</label>
                         <input class="span10" type="text" name="username" value="<?=$member['username']?>"/>
                         <div class="errortip"><?php echo form_error('username'); ?></div>
+                    </div>
+
+                    <div class="span12 field-box">
+                        <label>真实姓名:</label>
+                        <input class="span10" type="text" name="realname" value="<?=$member['realname']?>"/>
+                        <div class="errortip"><?php echo form_error('realname'); ?></div>
                     </div>
 
                     <div class="span12 field-box textarea">

@@ -30,6 +30,7 @@ class Member extends MY_Controller {
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
+        $this->form_validation->set_rules('realname' ,'', 'required',array('required' => '真实姓名不能为空'));
         $this->form_validation->set_rules('password' ,'', 'required',array('required' => '密码不能为空'));
         $this->form_validation->set_rules('rpassword','', 'required',array('required' => '确认密码不能为空'));
         $this->form_validation->set_rules('rpassword','', 'matches[password]', array("matches"=>"二次输入的密码不一致"));
@@ -52,6 +53,7 @@ class Member extends MY_Controller {
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username' ,'', 'required',array('required' => '用户名不能为空'));
+        $this->form_validation->set_rules('realname' ,'', 'required',array('required' => '真实姓名不能为空'));
         $this->form_validation->set_rules('mobile'   ,'', 'required',array('required' => '手机号不能为空'));
         $this->form_validation->set_rules('status'   ,'', 'required',array('required' => '状态不能为空'));
         $this->form_validation->set_rules('account'  ,'', 'required',array('required' => '账号不能为空'));
