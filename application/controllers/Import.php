@@ -9,14 +9,12 @@ class Import extends MY_Controller {
     }
 
     public function admins(){
-
         return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
         $query =$store->get('ot_admin');
         $list=$query->result_array();
         foreach($list as $key=>$value){
-
             $admin=array();
             $admin["username"]=$value["userName"];
             $admin["mobile"]=$value["mobile"];
@@ -31,17 +29,14 @@ class Import extends MY_Controller {
 
 
     public function category(){
-
         return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
-
         $store->where('tbParentId !=', 0);
         $query =$store->get('in_category');
         $list=$query->result_array();
 
         foreach($list as $key=>$value){
-
             $category=array();
             $category["name"]=$value["tbName"];
             $category["status"]=rand(1,2);
@@ -55,7 +50,6 @@ class Import extends MY_Controller {
 
 
     public function goods(){
-
         return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
@@ -70,16 +64,13 @@ class Import extends MY_Controller {
 
             $goods=array();
             $goods["name"]=$value["goodsName"];
-
             if($value["images"]){
                 $goods["image"]=$value["images"];
             }
-
             $goods["discription"]=($value["goodDescript"]);
             if($value["content"]){
                 $goods["content"]=$value["content"];
             }
-
             $goods["market_price"]=($value["costPrice"]);
             $goods["sales_price"]=$value["costPrice"];
             $goods["stock"]=($value["num"]);
@@ -91,11 +82,9 @@ class Import extends MY_Controller {
     }
 
     public function members(){
-
         return;
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
-
         $store->where('attentions =', 1);
         $store->where('realname !=',"");
         $store->where('mobile !=',"");
@@ -123,49 +112,48 @@ class Import extends MY_Controller {
 
     public function orders(){
 
-
         $store = $this->load->database('store', TRUE);
         $db = $this->load->database('default', TRUE);
-
-        $store->where('orderSn =', "");
+        $store->where('orderSn !=', "");
         $store->where('mobile !=',"");
         $store->where('pickupAddress !=',"");
-      
-        $store->limit(100,500);
         $query =$store->get('in_order_delivery');
         $list=$query->result_array();
-        /*
-                 var_dump($list);
-                 exit;*/
+        //echo $store->last_query();
         foreach($list as $key=>$value){
 
+            $order=array();
             $store->where('orderSn =',$value["orderSn"]);
+            $store->where('salesMoney >','0');
             $query =$store->get('in_order');
             $order=$query->row_array();
-
-            $order=array();
-            $order["ordersn"]=$value["realname"];
-            $order["name"]=$value["openID"];
-            $order["mobile"]=$value["mobile"];
-            $order["address"]=$value["account"];
-            $order["sales_price"]=$order["salesMoney"];
-            $order["pay_time"]=$order["payTime"];
-            $order["pay_type"]=rand(1,2);
-            $order["pay_money"]=$order["salesMoney"];
-            $order["status"]=rand(1,3);
-            $order["addtime"]=$value["addTime"];
-            $order["edittime"]=$value["editTime"];
-            $db->insert('orders', $order);
-
+            if(!$order){
+                continue;
+            }
+            $order_data=array();
+            $order_data["ordersn"]=$value["orderSn"];
+            $order_data["name"]=$value["name"];
+            $order_data["mobile"]=$value["mobile"];
+            $order_data["address"]=$value["pickupAddress"];
+            $order_data["sales_price"]=$order["salesMoney"];
+            $order_data["pay_time"]=$order["payTime"];
+            $order_data["pay_type"]=rand(1,2);
+            $order_data["pay_money"]=$order["salesMoney"];
+            $order_data["status"]=rand(1,3);
+            $order_data["add_time"]=$value["addTime"];
+            $order_data["edit_time"]=$value["editTime"]?$value['editTime']:$value["addTime"];
+            $db->insert('orders', $order_data);
             $store->where('orderSn =',$value["orderSn"]);
+
             $query =$store->get('in_order_goods');
-
             $order_goods_list=$query->result_array();
-
             foreach($order_goods_list as $k=>$val){
+                $store->where('id =',$val["goodsId"]);
+                $query =$store->get('in_goods');
+                $goods=$query->row_array();
                 $order_goods=array();
-                $order_goods['order_sn']=$val["goodsSn"];
-                $order_goods['goods_name']=$val["goodsName"];
+                $order_goods['order_sn']=$val["orderSn"];
+                $order_goods['goods_name']=$goods["goodsName"];
                 $order_goods['goods_sn']=$val["goodsSn"];
                 $order_goods['goods_num']=$val["goodsNum"];
                 $order_goods['sales_price']=$val["goodsPrice"];
@@ -174,9 +162,36 @@ class Import extends MY_Controller {
                 $order_goods['add_time']=$val["addTime"];
                 $db->insert('orders_goods', $order_goods);
             }
-
-
         }
+    }
+
+
+    public  function logs(){
+
+
+        $store = $this->load->database('store', TRUE);
+        $db = $this->load->database('default', TRUE);
+        $store->where('userName !=',"");
+        $store->where('content !=',"");
+        $store->where('modeName !=',"");
+        $store->where('createTime !=',"");
+        $store->limit(100,500);
+        $query =$store->get('tm_operation_logs');
+        $list=$query->result_array();
+        /*
+                 var_dump($list);
+                 exit;*/
+        foreach($list as $key=>$value){
+
+            $member=array();
+            $member["content"]=$value["content"];
+            $member["module"]=$value["modeName"];
+            $member["operator"]=$value["userName"];
+            $member["addtime"]=$value["createTime"];
+
+            $db->insert('logs', $member);
+        }
+
     }
 
 }

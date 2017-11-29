@@ -36,29 +36,32 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th class="span3">
-                                <input type="checkbox" />
+                            <th class="span1">
+                               <!-- <input type="checkbox" />-->
+                                ID
+                            </th>
+                            <th class="span2">
                                 商品名称
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>商品描述
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>商品原价
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>商品销售价
                             </th>
 
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>库存
                             </th>
 
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>新增时间
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>状态
                             </th>
                         </tr>
@@ -70,7 +73,9 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
+                                    <?=$item['id']?>
+                                </td>
+                                <td>
                                     <img src="/upload/image/<?=$item['image']?>" style="width: 32px;height: 32px;"/>
                                     <?=$item['name']?>
                                 </td>

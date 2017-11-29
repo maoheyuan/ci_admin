@@ -36,11 +36,15 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th class="span3">
-                                <input type="checkbox" />
-                                管理员名称
+                            <th class="span1">
+                                <!-- <input type="checkbox" />-->
+                                ID
                             </th>
                             <th class="span3">
+                               <!-- <input type="checkbox" />-->
+                                管理员名称
+                            </th>
+                            <th class="span2">
                                 <span class="line"></span>手机号
                             </th>
 
@@ -59,10 +63,14 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
-                                    <div class="img">
+                                    <!-- <input type="checkbox" />-->
+                                    <?=$item['id']?>
+                                </td>
+                                <td>
+                                   <!-- <input type="checkbox" />-->
+                                    <!--<div class="img">
                                         <img src="/static/img/table-img.png" />
-                                    </div>
+                                    </div>-->
                                     <?=$item['username']?>
                                 </td>
                                 <td class="description">

@@ -37,8 +37,10 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
+                            <th class="span1">
+                                ID
+                            </th>
                             <th class="span3">
-                                <input type="checkbox" />
                                 分类名称
                             </th>
                             <th class="span3">
@@ -60,10 +62,12 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
-                                    <div class="img">
+                                    <?=$item['id']?>
+                                </td>
+                                <td>
+                                <!--    <div class="img">
                                         <img src="/static/img/table-img.png" />
-                                    </div>
+                                    </div>-->
                                     <?=$item['name']?>
                                 </td>
                                 <td class="description">

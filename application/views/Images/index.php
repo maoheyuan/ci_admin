@@ -36,8 +36,7 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th class="span3">
-                                <input type="checkbox" />
+                            <th class="span1">
                                编号
                             </th>
 
@@ -49,7 +48,7 @@
                                 <span class="line"></span>新增时间
                             </th>
 
-                            <th class="span3">
+                            <th class="span4">
                                 <span class="line"></span>修改时间
                             </th>
                         </tr>
@@ -60,8 +59,6 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
-
                                     <?=$item['id']?>
                                 </td>
                                 <td class="description">

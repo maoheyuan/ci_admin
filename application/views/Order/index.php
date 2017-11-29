@@ -37,38 +37,40 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th class="span3">
-                                <input type="checkbox" />
-                                订单编号
+                            <th class="span1">
+                                ID
                             </th>
 
-                            <th class="span3">
+                            <th class="span1">
+                                订单编号
+                            </th>
+                            <th class="span1">
                                 <span class="line"></span>收货人姓名
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>收货人手机
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>收货地址
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>销售价格
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>支付类型
                             </th>
 
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>支付金额
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>支付时间
                             </th>
-                            <th class="span3">
+                            <th class="span1">
                                 <span class="line"></span>新增时间
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>状态
                             </th>
                         </tr>
@@ -79,8 +81,10 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
+                                    <?=$item['id']?>
+                                </td>
 
+                                <td>
                                     <?=$item['ordersn']?>
                                 </td>
                                 <td class="description">

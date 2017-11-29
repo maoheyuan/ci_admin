@@ -35,21 +35,21 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th class="span3">
+                            <th class="span2">
                                 编号
                             </th>
 
-                            <th class="span3">
+                            <th class="span4">
                                 <span class="line"></span>操作内容
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>操作模块
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>操作人
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>新增时间
                             </th>
                         </tr>
@@ -60,8 +60,6 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-
-
                                     <?=$item['id']?>
                                 </td>
                                 <td class="description">

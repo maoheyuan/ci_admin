@@ -38,14 +38,16 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
+                            <th class="span1">
+                                Id
+                            </th>
                             <th class="span3">
-                                <input type="checkbox" />
                                 会员名称
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>手机号
                             </th>
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>账户金额
                             </th>
 
@@ -53,7 +55,7 @@
                                 <span class="line"></span>地址
                             </th>
 
-                            <th class="span3">
+                            <th class="span2">
                                 <span class="line"></span>状态
                             </th>
                         </tr>
@@ -64,10 +66,14 @@
                             <!-- start row -->
                             <tr >
                                 <td>
-                                    <input type="checkbox" />
-                                    <div class="img">
+                                    <?=$item['id']?>
+                                </td>
+
+                                <td>
+
+                                 <!--   <div class="img">
                                         <img src="/static/img/table-img.png" />
-                                    </div>
+                                    </div>-->
                                     <?=$item['username']?>
                                 </td>
                                 <td class="description">
