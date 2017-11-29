@@ -76,7 +76,7 @@
                                     <?=$item['id']?>
                                 </td>
                                 <td>
-                                    <img src="/upload/image/<?=$item['image']?>" style="width: 32px;height: 32px;"/>
+                                    <img src="/upload/image/goods/<?=$item['image']?>" style="width: 32px;height: 32px;"/>
                                     <?=$item['name']?>
                                 </td>
                                 <td class="description">

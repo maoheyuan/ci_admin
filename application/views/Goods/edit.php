@@ -48,7 +48,7 @@
 
                     <div class="span12 field-box">
                         <label>商品原图片:</label>
-                        <img src="/upload/image/<?=$goods['image']?>" style="height: 100px;width: 100px;">
+                        <img src="/upload/image/goods/<?=$goods['image']?>" style="height: 100px;width: 100px;">
                     </div>
                     <div class="span12 field-box textarea">
                         <label>介简:</label>
