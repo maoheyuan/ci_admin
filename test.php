@@ -20,4 +20,4 @@ function foreachDir($path,$dext){
         return false;
     }
 }
-foreachDir('F:\ci_admin\upload\image\goods','jpg');
+//foreachDir('F:\ci_admin\upload\image\goods','jpg');
