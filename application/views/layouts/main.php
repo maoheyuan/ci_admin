@@ -142,22 +142,18 @@
 
 
 
-        <?php if ($controller== 'Images'): ?>
-    <li class="active">
-    <div class="pointer">
-        <div class="arrow"></div>
-        <div class="arrow_border"></div>
-    </div>
-    <?php else: ?>
-        <li>
-            <?php endif; ?>
 
+<!--        <li class="active">
+            <div class="pointer">
+                <div class="arrow"></div>
+                <div class="arrow_border"></div>
+            </div>
             <a href="/Images/index">
                 <i class="icon-picture"></i>
                 <span>图片管理</span>
             </a>
         </li>
-
+-->
 
 
         <?php if ($controller== 'Order'): ?>

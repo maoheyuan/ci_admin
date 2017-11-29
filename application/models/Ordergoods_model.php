@@ -21,10 +21,9 @@ class Ordergoods_model extends CI_Model {
         //echo $this->db->last_query();
         $list=$query->result_array();
         foreach($list as $key=>$value){
-
             $list[$key]=$this->format_data($value);
-
         }
+
         return $list;
     }
 
@@ -54,6 +53,8 @@ class Ordergoods_model extends CI_Model {
         }
         $query=$this->db->where('id',$id)->from('orders_goods')->limit(1)->get();
         $data=$query->row_array();
+
+        $data=$this->format_data($data);
         return  $data;
     }
     public  function  get_list_by_ordersn($ordersn){
@@ -62,6 +63,9 @@ class Ordergoods_model extends CI_Model {
         }
         $query=$this->db->where('order_sn',$ordersn)->from('orders_goods')->get();
         $data=$query->result_array();
+        foreach($data as $key=>$value){
+            $data[$key]=$this->format_data($value);
+        }
         return  $data;
     }
 
