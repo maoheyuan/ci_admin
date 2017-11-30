@@ -7,6 +7,7 @@ class Goods extends MY_Controller {
         parent::__construct();
         $this->load->model('goods_model');
         $this->load->helper('url');
+        $this->load->model('logs_model');
     }
 
 
@@ -50,10 +51,13 @@ class Goods extends MY_Controller {
                 $post=$this->input->post();
                 $post["image"]=$image_file_name;
                 $result=$this->goods_model->insert($post);
+
                 if($result==false){
                     $this->form_validation->set_file_error( "error_tip",'商品新增失败');
                     $this->layout->view("goods/add");
                 }else{
+                    $post["id"]=$result;
+                    $this->logs_model->insert($post);
                     redirect('/Goods/index');
                 }
             }
@@ -66,7 +70,7 @@ class Goods extends MY_Controller {
 
 
     protected  function do_upload($input_name){
-        $config['upload_path']      = './upload/image';
+        $config['upload_path']      = './upload/image/goods';
         $config['allowed_types']    = 'gif|jpg|png';
         $file_name=time();
         $config["file_name"]=$file_name;
@@ -76,6 +80,7 @@ class Goods extends MY_Controller {
         }
         else {
             $data = $this->upload->data();
+
             return $data["file_name"];
         }
     }
@@ -134,6 +139,7 @@ class Goods extends MY_Controller {
                 $this->layout->view("goods/edit",$data);
             }
             else{
+                $this->logs_model->insert($post);
                 redirect('/Goods/index');
             }
         }
@@ -142,6 +148,7 @@ class Goods extends MY_Controller {
     public  function  delete(){
         $id = $this->input->get('id');
         $this->goods_model->delete($id);
+        $this->logs_model->insert(array("id"=>$id));
         redirect("/Goods/index");
     }
 

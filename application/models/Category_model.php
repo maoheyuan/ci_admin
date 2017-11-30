@@ -74,7 +74,8 @@ class Category_model extends CI_Model {
         $data['name']   = $post['name'];
         $data["status"]=$post["status"];
         $data['addtime']  = time();
-        return $this->db->insert('category', $data);
+        $this->db->insert('category', $data);
+        return  $this->db->insert_id();
     }
 
     public function update($id,$post=array()){

@@ -78,7 +78,8 @@ class Member_model extends CI_Model {
         $data['account']  = $post['account'];
         $data['address']   = $post['address'];
         $data['addtime']  = time();
-        return $this->db->insert('members', $data);
+        $this->db->insert('members', $data);
+        return  $this->db->insert_id();
     }
 
     public function update($id,$post=array()){

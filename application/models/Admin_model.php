@@ -76,7 +76,9 @@ class Admin_model extends CI_Model {
         $data['password']   = $post['password'];
         $data["status"]=$post["status"];
         $data['addtime']  = time();
-        return $this->db->insert('admins', $data);
+        $this->db->insert('admins', $data);
+
+        return  $this->db->insert_id();
     }
 
     public function update($id,$post=array()){

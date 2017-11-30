@@ -7,6 +7,7 @@ class Config extends MY_Controller {
         parent::__construct();
         $this->load->model('config_model');
         $this->load->helper('url');
+        $this->load->model('logs_model');
     }
 
     public function index()
@@ -29,6 +30,7 @@ class Config extends MY_Controller {
                 foreach($post as $key=>$value){
                     $this->config_model->update_by_key($key,$value);
                 }
+                $this->logs_model->insert($post);
             }
             $configArray=$post;
         }

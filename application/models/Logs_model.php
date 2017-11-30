@@ -45,5 +45,21 @@ class Logs_model extends CI_Model {
     }
 
 
+    public function insert($post=array()){
+
+        $ci =& get_instance();
+        $controller =  $ci->router->fetch_class();
+        $action     = $ci->router->fetch_method();
+        $ci->load->library('session');
+        $admin= $ci->session->userdata('admin');
+        $data=array();
+        $data['module']   =$controller."/".$action;
+        $data['operator']  = $admin["username"];
+        $data['content']   = json_encode($post,JSON_UNESCAPED_UNICODE);
+        $data['addtime']  = time();
+        $this->db->insert('logs', $data);
+        return  $this->db->insert_id();
+    }
+
 
 }

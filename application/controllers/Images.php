@@ -7,6 +7,7 @@ class Images extends MY_Controller {
         parent::__construct();
         $this->load->model('image_model');
         // $this->load->database();
+        $this->load->model('logs_model');
     }
 
 
@@ -69,6 +70,9 @@ class Images extends MY_Controller {
                         $this->form_validation->set_file_error( "error_tip",'图片保存失败1');
                         $this->layout->view("Images/add");
                     }else{
+
+                        $post["id"]=$result;
+                        $this->logs_model->insert($post);
                         redirect('/Images/index');
                     }
                 }
@@ -122,6 +126,7 @@ class Images extends MY_Controller {
                 $this->layout->view("Images/edit",$post);
             }
             else{
+                $this->logs_model->insert($post);
                 redirect('/Images/index');
             }
         }

@@ -7,6 +7,7 @@ class Member extends MY_Controller {
         parent::__construct();
         $this->load->model('member_model');
         $this->load->helper('url');
+        $this->load->model('logs_model');
     }
 
 
@@ -43,7 +44,8 @@ class Member extends MY_Controller {
         }
         else {
             $post=$this->input->post();
-            $this->member_model->insert($post);
+            $post["id"]=$this->member_model->insert($post);
+            $this->logs_model->insert($post);
             redirect('/Member/index');
         }
     }
@@ -74,6 +76,7 @@ class Member extends MY_Controller {
         else {
 
             $this->member_model->update($id,$post);
+            $this->logs_model->insert($post);
             redirect("/Member/index");
         }
     }
@@ -81,6 +84,7 @@ class Member extends MY_Controller {
     public  function  delete(){
         $id = $this->input->get('id');
         $this->member_model->delete($id);
+        $this->logs_model->insert(array("id"=>$id));
         redirect("/Member/index");
     }
 

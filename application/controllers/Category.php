@@ -8,6 +8,7 @@ class Category extends MY_Controller {
         parent::__construct();
         $this->load->model('category_model');
         $this->load->helper('url');
+        $this->load->model('logs_model');
     }
 
 
@@ -33,7 +34,8 @@ class Category extends MY_Controller {
         }
         else {
             $post=$this->input->post();
-            $this->category_model->insert($post);
+            $post["id"]=$this->category_model->insert($post);
+            $this->logs_model->insert($post);
             redirect('/Category/index');
         }
     }
@@ -56,6 +58,7 @@ class Category extends MY_Controller {
         else {
 
             $this->category_model->update($id,$post);
+            $this->logs_model->insert($post);
             redirect("/Category/index?");
         }
     }
@@ -63,6 +66,7 @@ class Category extends MY_Controller {
     public  function  delete(){
         $id = $this->input->get('id');
         $this->category_model->delete($id);
+        $this->logs_model->insert(array("id"=>$id));
         redirect("/Category/index");
     }
 

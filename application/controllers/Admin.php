@@ -6,6 +6,7 @@ class Admin extends MY_Controller {
     public  function __construct(){
         parent::__construct();
         $this->load->model('admin_model');
+        $this->load->model('logs_model');
         $this->load->helper('url');
     }
 
@@ -37,6 +38,7 @@ class Admin extends MY_Controller {
         else {
             $post=$this->input->post();
             $this->admin_model->insert($post);
+            $this->logs_model->insert($post);
             redirect('/Admin/index');
         }
     }
@@ -62,7 +64,8 @@ class Admin extends MY_Controller {
             $this->layout->view("admin/edit",$data);
         }
         else {
-            $this->admin_model->update($id,$post);
+            $post["id"]=$this->admin_model->update($id,$post);
+            $this->logs_model->insert($post);
             redirect("/Admin/index");
         }
     }
@@ -70,6 +73,7 @@ class Admin extends MY_Controller {
     public  function  delete(){
         $id = $this->input->get('id');
         $this->admin_model->delete($id);
+        $this->logs_model->insert(array("id"=>$id));
         redirect("/Admin/index");
     }
 

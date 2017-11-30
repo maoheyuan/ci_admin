@@ -84,7 +84,8 @@ class Goods_model extends CI_Model {
         $data['stock']   = $post['stock'];
         $data['status']   = $post['status'];
         $data['addtime']  = time();
-        return $this->db->insert('goods', $data);
+        $this->db->insert('goods', $data);
+        return  $this->db->insert_id();
     }
 
     public function update($id,$post=array()){

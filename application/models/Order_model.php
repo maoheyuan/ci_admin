@@ -83,7 +83,6 @@ class Order_model extends CI_Model {
             return false;
         }
         $query=$this->db->where('id',$id)->from('orders')->limit(1)->get();
-
         $order=$query->row_array();
         $format_order=$this->format_data($order);
         $order["add_time"]=$format_order["add_time"];
