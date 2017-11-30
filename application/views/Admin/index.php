@@ -114,3 +114,4 @@
     </div>
 </div>
 <!-- end main container -->
+<script src="/static/js/base.js"></script>

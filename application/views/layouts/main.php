@@ -228,6 +228,6 @@
     <?php echo $content; ?>
 </div>
 
-<script src="/static/js/base.js"></script>
+
 </body>
 </html>

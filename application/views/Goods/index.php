@@ -76,7 +76,7 @@
                                     <?=$item['id']?>
                                 </td>
                                 <td>
-                                    <img src="/upload/image/goods/<?=$item['image']?>" style="width: 32px;height: 32px;"/>
+                                    <img src="/upload/image/goods/<?=$item['image']?>.jpg" style="width: 32px;height: 32px;"/>
                                     <?=$item['name']?>
                                 </td>
                                 <td class="description">
@@ -120,3 +120,4 @@
 </div>
 <!-- end main container -->
 
+<script src="/static/js/base.js"></script>

@@ -137,3 +137,4 @@
 
     });
 </script>
+<script src="/static/js/base.js"></script>
