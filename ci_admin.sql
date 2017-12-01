@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-11-30 10:10:23
+Date: 2017-12-01 17:25:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `admins` (
 -- ----------------------------
 -- Records of admins
 -- ----------------------------
-INSERT INTO `admins` VALUES ('282', 'maoheyuan', '17097221591', '3e70bf23f259a3b7824e0d19a7006091', '1', '1458721688', '1464743930', '毛何远');
+INSERT INTO `admins` VALUES ('282', 'maoheyuan', '17097221591', '123456', '1', '1458721688', '1464743930', '毛何远');
 INSERT INTO `admins` VALUES ('283', 'tsa', '18677059534', 'e10adc3949ba59abbe56e057f20f883e', '1', '1457436340', '1488524977', '谭世鳌');
 INSERT INTO `admins` VALUES ('284', 'huangjun', '13410751516', 'cc2035866efff0e89d92732b7a3c50e3', '1', '1460727603', '1474248001', '黄君');
 INSERT INTO `admins` VALUES ('285', 'sunjianbin', '18820297644', 'b04df7488c09660ab9d41bc7a744eeec', '1', '1460727745', '1497265103', '孙建斌');
@@ -125,6 +125,24 @@ INSERT INTO `admins` VALUES ('369', 'wanshuting', '15710808820', '4297f44b139552
 INSERT INTO `admins` VALUES ('370', 'yuanhaiwei', '13000000000', 'c8837b23ff8aaa8a2dde915473ce0991', '1', '1500259214', '0', '袁海威');
 
 -- ----------------------------
+-- Table structure for `cart`
+-- ----------------------------
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0' COMMENT '会员Id',
+  `gid` int(11) NOT NULL DEFAULT '0' COMMENT '商品id',
+  `name` varchar(255) NOT NULL DEFAULT '' COMMENT '商品名称',
+  `number` int(11) DEFAULT '0' COMMENT '商品数量',
+  `add_time` int(11) DEFAULT '0' COMMENT '新增时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of cart
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `category`
 -- ----------------------------
 DROP TABLE IF EXISTS `category`;
@@ -135,7 +153,7 @@ CREATE TABLE `category` (
   `addtime` int(11) DEFAULT '0' COMMENT '新增时间',
   `edittime` int(11) DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 COMMENT='分类管理';
+) ENGINE=MyISAM AUTO_INCREMENT=160 DEFAULT CHARSET=utf8mb4 COMMENT='分类管理';
 
 -- ----------------------------
 -- Records of category
@@ -175,7 +193,7 @@ INSERT INTO `category` VALUES ('154', '厨杂用品', '2', '-10000', '0');
 INSERT INTO `category` VALUES ('155', '批发水果', '1', '-10000', '0');
 INSERT INTO `category` VALUES ('156', '包材', '2', '-10000', '0');
 INSERT INTO `category` VALUES ('157', '办公用品', '2', '-10000', '0');
-INSERT INTO `category` VALUES ('158', '工具', '1', '-10000', '0');
+INSERT INTO `category` VALUES ('158', '工具1', '1', '-10000', '1512108926');
 
 -- ----------------------------
 -- Table structure for `configs`
@@ -220,7 +238,7 @@ CREATE TABLE `goods` (
   `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '新增时间',
   `edittime` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12854 DEFAULT CHARSET=utf8mb4 COMMENT='商品管理';
+) ENGINE=MyISAM AUTO_INCREMENT=12855 DEFAULT CHARSET=utf8mb4 COMMENT='商品管理';
 
 -- ----------------------------
 -- Records of goods
@@ -3081,6 +3099,7 @@ INSERT INTO `goods` VALUES ('12849', '美国进口无籽黑提400g', 'FiBgk0kWl2
 INSERT INTO `goods` VALUES ('12850', '实建冰糖橙 约10斤整箱装特级', 'Frlrg20ay6aFJEs8oq75msSgTvJy.jpg', '', '&lt;p&gt;&lt;img src=&quot;/Uploads/images/20171124/1511507896682103.jpg&quot; title=&quot;1511507896682103.jpg&quot; _src=&quot;/Uploads/images/20171124/1511507896682103.jpg&quot; alt=&quot;实建橙.jpg&quot;/&gt;&lt;/p&gt;', '42', '42', '5000', '1', '1511506832', '1511773231');
 INSERT INTO `goods` VALUES ('12851', '大凉山野生新鲜当归约100g', 'FttDuy8tWPfjl5ICTFBylqZijC_4.jpg', '', '', '6', '6', '100', '1', '1511521208', '1511773207');
 INSERT INTO `goods` VALUES ('12852', '江永香芋约2斤', 'FkR27DFfMubgbSG6KoQp2Ob97Rqp.jpg', '', '&lt;p&gt;&lt;img src=&quot;/Uploads/images/20171127/1511747278349954.jpg&quot; title=&quot;1511747278349954.jpg&quot; _src=&quot;/Uploads/images/20171127/1511747278349954.jpg&quot; alt=&quot;香芋.jpg&quot;/&gt;&lt;/p&gt;', '8', '8', '1000', '1', '1511524807', '1511773207');
+INSERT INTO `goods` VALUES ('12854', 'tesfffffffft', 'Frlrg20ay6aFJEs8oq75msSgTvJy.jpg', '\"ffff\"', 'ggxxx', '41', '50', '1000', '1', '1512109823', '1512110090');
 
 -- ----------------------------
 -- Table structure for `images`
@@ -3235,7 +3254,7 @@ CREATE TABLE `members` (
   `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '新增时间',
   `edittime` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=531 DEFAULT CHARSET=utf8mb4 COMMENT='会员管理';
+) ENGINE=MyISAM AUTO_INCREMENT=533 DEFAULT CHARSET=utf8mb4 COMMENT='会员管理';
 
 -- ----------------------------
 -- Records of members
@@ -3340,6 +3359,7 @@ INSERT INTO `members` VALUES ('527', '1464620955', '邓小姐', 'oR5FDwig7OpaP1_
 INSERT INTO `members` VALUES ('528', '1464837289', '高小姐', 'oR5FDwq_NFJuMrlHDAwZll3KOi5M', '15012805600', '0', '龙华区新区大道潜龙曼海宁花园北区101-102（易站便利店）', '2', '1464837289', '0');
 INSERT INTO `members` VALUES ('529', '1464837451', '陈姐', 'oR5FDwrG3Q2_Vk9jBpIryXiwcut8', '13802823712', '5', '龙华区新区大道潜龙曼海宁花园北区101-102（易站便利店）', '2', '1464837451', '0');
 INSERT INTO `members` VALUES ('530', '1464839553', '查建华', 'oR5FDwkDWST9erJWKvXP4WasAEmQ', '15176745660', '0', '26栋派鲜科技1楼', '2', '1464839553', '0');
+INSERT INTO `members` VALUES ('532', 'xiaomao', '小毛毛', '123456', '13978021298', '10000', '26栋派鲜科技1楼', '1', '1512110760', '0');
 
 -- ----------------------------
 -- Table structure for `orders`
@@ -3359,7 +3379,7 @@ CREATE TABLE `orders` (
   `add_time` int(11) NOT NULL DEFAULT '0' COMMENT '新增时间',
   `edit_time` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=644 DEFAULT CHARSET=utf8mb4 COMMENT='订单管理';
+) ENGINE=MyISAM AUTO_INCREMENT=647 DEFAULT CHARSET=utf8mb4 COMMENT='订单管理';
 
 -- ----------------------------
 -- Records of orders
@@ -3417,6 +3437,9 @@ INSERT INTO `orders` VALUES ('640', '15117685559702', 'aa', '13554820565', '白�
 INSERT INTO `orders` VALUES ('641', '15117710464310', 'aa', '13554820565', '白泥坑宝盛工业区', '16', '1511771046', '2', '16', '1', '1511771046', '1511771046');
 INSERT INTO `orders` VALUES ('642', '15117715269634', 'aa', '13554820565', '白泥坑宝盛工业区', '24', '1511771526', '1', '24', '3', '1511771526', '1511771526');
 INSERT INTO `orders` VALUES ('643', '15117717072356', 'aa', '13554820565', '白泥坑宝盛工业区', '43', '1511771707', '1', '43', '2', '1511771707', '1511771707');
+INSERT INTO `orders` VALUES ('644', '1512118944', ' \"\"', '13554820565', '白泥坑宝盛工业区', '111', '0', '1', '0', '1', '1512118944', '0');
+INSERT INTO `orders` VALUES ('645', '1512119012', ' \"\"', '13554820565', '白泥坑宝盛工业区', '111', '0', '1', '0', '1', '1512119012', '0');
+INSERT INTO `orders` VALUES ('646', '1512119049', '毛何远', '13554820565', '白泥坑宝盛工业区', '111', '0', '1', '0', '1', '1512119049', '1512119856');
 
 -- ----------------------------
 -- Table structure for `orders_goods`
@@ -3433,7 +3456,7 @@ CREATE TABLE `orders_goods` (
   `return_num` int(11) NOT NULL DEFAULT '0' COMMENT '退货数量',
   `add_time` int(11) NOT NULL DEFAULT '0' COMMENT '新增时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1249 DEFAULT CHARSET=utf8mb4 COMMENT='订单商品';
+) ENGINE=MyISAM AUTO_INCREMENT=1250 DEFAULT CHARSET=utf8mb4 COMMENT='订单商品';
 
 -- ----------------------------
 -- Records of orders_goods
@@ -3539,3 +3562,4 @@ INSERT INTO `orders_goods` VALUES ('1245', '15117717072356', '山东A级甜巨�
 INSERT INTO `orders_goods` VALUES ('1246', '15117717072356', '高山水蜜桃 4个', '12920', '1', '27', '27', '0', '1511771707');
 INSERT INTO `orders_goods` VALUES ('1247', '15117717072356', '阿诺雪花南瓜饼 336g', '11053', '2', '5', '5', '0', '1511771707');
 INSERT INTO `orders_goods` VALUES ('1248', '15117717072356', '泰国进口椰青 4个', '12728', '1', '0', '0', '0', '1511771707');
+INSERT INTO `orders_goods` VALUES ('1249', '1512119049', 'xiaomao', '10001', '1', '100', '1000', '0', '1512119049');
